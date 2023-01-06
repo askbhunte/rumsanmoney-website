@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <style>
+      small {
+        color: red;
+      }
+
+      .alert.alert-warning {
+        background-color: #06607F;
+        color: gold;
+      }
+    </style>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <!--Slide to top button ends-->
+
+    <!--Homepage Slider Start-->
+    <div id="sliderWrap" style="background-color: #000;">
+      <div id="sliderWrapper" class="section-find-products">
+        <div id="findProdContainer" class="container-fluid silder-bg"
+          style="background-image:linear-gradient(to bottom, rgba(18,42, 66, .55), rgba(18,42, 66, .55)), url(<%-featured[0].image%>), url('https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9">
+                <div id="pTitle" class="prodtype-title">
+                </div>
+                <div id="pDesc" class="prod-desc">
+                  <%- featured[0].sub_head ? featured[0].sub_head : "" %>
+                </div>
+                <div class="slider-btn-wrapper">
+                  <% if(featured[0].name.includes('Loan')) {%>
+                    <button type="button" data-name="<%-featured[0].name%>"
+                      class="btn btn-primary btn-curve find-products-btn btn-animate"
+                      onclick="window.open('/loan?type=<%-featured[0].name%>','_self')">Find Products </button>
+                    <%}%>
+                      <% if(featured[0].name.includes('Saving') || featured[0].name.includes('Savings')) { %>
+                        <button type="button" data-name="<%-featured[0].name%>"
+                          class="btn btn-primary btn-curve find-products-btn btn-animate"
+                          onclick="window.open('/savings?type=<%-featured[0].name%>','_self')">Find Products</button>
+                        <%}%>
+                          <% if(featured[0].name.includes('Insurance')) { %>
+                            <button type="button" data-name="<%-featured[0].name%>"
+                              class="btn btn-primary btn-curve find-products-btn btn-animate"
+                              onclick="window.open('/insurance?type=<%-featured[0].name%>','_self')">Find
+                              Products</button>
+                            <%}%>
+                </div>
+              </div>
+              <div class="col-md-3 loan-names-container">
+                <div id="loanNames" class="loan-names">
+                  <% featured.forEach((el)=>{ %>
+                    <button type="button" class="btn-transparent" onclick="changeCarousel('<%- el.name %>')">
+                      <%- el.name %>
+                    </button>
+                    <div class="underline"></div>
+                    <% }) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Homepage Slider End-->
+
+    <!--Preference Form Section start-->
+    <div class="row">
+      <div id="preference-alert" class="alert alert-success text-center" role="alert">
+        <p class="mb-0 text-center"><span class="b-text-contact" style="color: #000; padding-bottom: 5px;">Looks like
+            you have already set
+            your preferences. Click to see categories of your choice.</p>
+        <div class="button-padding">
+          <button class="btn btn-primary btn-curve btn-sm" onclick="window.open('/preference','_self')"
+            style="margin-left: 12px;">Categories you may like</button>
+          <span style="margin: 15px;"></span>
+          <button class="btn btn-primary btn-curve btn-sm" onclick="clearPreference()">Clear Preference</button>
+        </div>
+
+        </span>
+      </div>
+    </div>
+    <div class="container">
+      <div id="preference-form-section" class="container d-flex align-items-center min-vh-50 mt-5">
+        <div class="row g-0 justify-content-center">
+          <!-- TITLE -->
+          <div class="col-lg-4 offset-lg-1 mx-0 px-0">
+            <div id="title-container"> <img class="covide-image" height="300px"
+                src="https://assets.rumsan.com/askbhunte/assets/rumsanmoney-preference-form-1.png"
+                style="width: 250px; height: 250px;" />
+              <h3 class="mt-2">What are you looking for?</h3>
+              <p>Please provide us with your basic information and we will find apporiate category for you that suits
+                your
+                preference.</p>
+              <!-- <img class="covid-image" src="https://assets.rumsan.com/askbhunte/assets/rumsanmoneylogo-horizontal.png"> -->
+
+            </div>
+          </div>
+          <!-- FORMS -->
+          <div class="col-lg-8 mx-0 px-0">
+            <div id="qbox-container">
+              <form class="needs-validation" id="form-wrapper" method="post" name="form-wrapper" novalidate="">
+                <div id="steps-container">
+                  <div class="step">
+                    <h4>Provide us with your personal information:</h4>
+                    <div class="mt-1">
+                      <label for="full_name" class="form-label">Name:</label>
+                      <input class="form-control" id="full_name" name="full_name" type="text" required>
+                      <div class="invalid-name d-none">
+                        <small>Please provide your name</small>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <label for="email" class="form-label">Email:</label>
+                      <input class="form-control" id="email" name="email" type="email" required>
+                      <div class="invalid-email d-none">
+                        <small>Please provide correct email</small>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <label for="phone" class="form-label">Phone / Mobile Number:</label>
+                      <input class="form-control" id="phone" name="phone" type="number" required>
+                      <div class="invalid-phone d-none">
+                        <small>Please enter valid phone</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4>What is your age ?</h4>
+                        <div class="form-check ps-0 q-box">
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="agegroup_18to25" name="age_group"
+                              type="radio" value="agegroup_18to25" required>
+
+                            <label class="form-check-label question__label" for="agegroup_18to25">18-25</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="agegroup_25to30" name="age_group"
+                              type="radio" value="agegroup_25to30">
+                            <label class="form-check-label question__label" for="agegroup_25to30">25-30</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="agegroup_30to40" name="age_group"
+                              type="radio" value="agegroup_30to40">
+                            <label class="form-check-label question__label" for="agegroup_30to40">30-40</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="agegroup_40to45plus" name="age_group"
+                              type="radio" value="agegroup_40to45plus">
+                            <label class="form-check-label question__label" for="agegroup_40to45plus">40-45+</label>
+                          </div>
+                          <div class="invalid-age d-none">
+                            <small>Please choose your age group</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex  align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/pref-age.png" alt="">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4>What is your occupation ?</h4>
+                        <div class="form-check ps-0 q-box">
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="occupation_professional"
+                              name="occupation" type="radio" value="occupation_professional" required>
+                            <label class="form-check-label question__label"
+                              for="occupation_professional">Professional</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="occupation_student" name="occupation"
+                              type="radio" value="occupation_student">
+                            <label class="form-check-label question__label" for="occupation_student">Student</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="occupation_farmer" name="occupation"
+                              type="radio" value="occupation_farmer">
+                            <label class="form-check-label question__label" for="occupation_farmer">Farmer</label>
+                          </div>
+                          <div class="invalid-occupation d-none">
+                            <small>Please choose your occupation</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex  align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/occupation.jpg" alt=""
+                          style="width: 256px;">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>Foreign Employment ?</h4>
+                        <div class="form-check ps-0 q-box">
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="foreign_employment_yes"
+                              name="foreign_employment" type="radio" value="foreign_employment_yes" required>
+                            <label class="form-check-label question__label" for="foreign_employment_yes">Yes</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="foreign_employment_no"
+                              name="foreign_employment" type="radio" value="foreign_employment_no">
+                            <label class="form-check-label question__label" for="foreign_employment_no">No</label>
+                          </div>
+                          <div class="invalid-foreign d-none">
+                            <small>Please choose your foreign employment status</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/foreign-emp.jpg" alt=""
+                          style="width: 256px;">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>What is your annual income ?</h4>
+                        <div class="form-check ps-0 q-box">
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="income_upto_1lakh" name="annual_income"
+                              type="radio" value="income_upto_1lakh" required>
+                            <label class="form-check-label question__label" for="income_upto_1lakh">Upto 1
+                              Lakhs/Year</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="income_upto_3lakh" name="annual_income"
+                              type="radio" value="income_upto_3lakh">
+                            <label class="form-check-label question__label" for="income_upto_3lakh">Upto 3
+                              Lakhs/Year</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="income_upto_5lakh" name="annual_income"
+                              type="radio" value="income_upto_5lakh">
+                            <label class="form-check-label question__label" for="income_upto_5lakh">Upto 5
+                              Lakhs/Year</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="income_upto_10lakh" name="annual_income"
+                              type="radio" value="income_upto_10lakh">
+                            <label class="form-check-label question__label" for="income_upto_10lakh">Upto 10
+                              Lakhs/year</label>
+                          </div>
+                          <div class="q-box__ques">
+                            <input class="form-check-input question__input" id="income_above_10lakh"
+                              name="annual_income" type="radio" value="income_above_10lakh">
+                            <label class="form-check-label question__label" for="income_above_10lakh">10 Lakhs/year and
+                              above</label>
+                          </div>
+                          <div class="invalid-income d-none">
+                            <small>Please choose your annual income</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/wavy-tech-06-single-06.jpg"
+                          alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="row">
+                          <h4>Where are you located ?</h4>
+                          <div class="col-lg-12">
+                            <div class="form-check ps-0 q-box">
+                              <div class="q-box__ques">
+                                <input class="form-check-input question__input q-checkbox" id="location_kathmandu"
+                                  name="location" type="radio" value="location_kathmandu" required>
+                                <label class="form-check-label question__label"
+                                  for="location_kathmandu">Kathmandu</label>
+                              </div>
+                            </div>
+                            <div class="form-check ps-0 q-box">
+                              <div class="q-box__ques">
+                                <input class="form-check-input question__input" id="location_pokhara" name="location"
+                                  type="radio" value="location_pokhara">
+                                <label class="form-check-label question__label" for="location_pokhara">Pokhara</label>
+                              </div>
+                            </div>
+                            <div class="form-check ps-0 q-box">
+                              <div class="q-box__ques">
+                                <input class="form-check-input question__input" id="location_biratnagar" name="location"
+                                  type="radio" value="location_biratnagar">
+                                <label class="form-check-label question__label"
+                                  for="location_biratnagar">Biratnagar</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="form-check ps-0 q-box">
+                              <div class="q-box__ques">
+                                <input class="form-check-input question__input" id="location_other" name="location"
+                                  type="radio" value="location_other">
+                                <label class="form-check-label question__label" for="location_other">Other
+                                  Location</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="invalid-location d-none">
+                            <small>Please choose your nearest location</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/where-located.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="row">
+                      <div class="col-6">
+                        <h4>What is your gender ?</h4>
+                        <div class="row">
+                          <div class="form-check ps-0 q-box">
+                            <div class="q-box__ques">
+                              <input class="form-check-input question__input" id="gender_male" name="gender"
+                                type="radio" value="gender_male" required>
+                              <label class="form-check-label question__label" for="gender_male">Male</label>
+                            </div>
+                          </div>
+                          <div class="form-check ps-0 q-box">
+                            <div class="q-box__ques">
+                              <input class="form-check-input question__input" id="gender_female" name="gender"
+                                type="radio" value="gender_female">
+                              <label class="form-check-label question__label" for="gender_female">Female</label>
+                            </div>
+                          </div>
+                          <div class="form-check ps-0 q-box">
+                            <div class="q-box__ques">
+                              <input class="form-check-input question__input" id="gender_other" name="gender"
+                                type="radio" value="gender_other">
+                              <label class="form-check-label question__label" for="gender_other">Others</label>
+                            </div>
+                          </div>
+                          <div class="invalid-gender d-none">
+                            <small>Please choose your gender</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 text-center d-flex align-items-center">
+                        <img class="img-fluid" src="https://assets.rumsan.com/rumsan-group/4010894.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="q-box__buttons">
+                  <div id="validation-fail" class="alert alert-warning d-none">
+                    You have missed some of the fields. Please complete it before you
+                    proceed....
+                  </div>
+                  <button id="prev-btn" type="button">Previous</button>
+                  <button id="next-btn" type="button">Next</button>
+                  <button id="submit-btn" type="submit">Proceed</button>
+                </div>
+              </form>
+            </div>
+            <div class="progress">
+              <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50"
+                class="progress-bar progress-bar-striped progress-bar-animated bg-preference" role="progressbar"
+                style="width: 0%"></div>
+            </div>
+          </div>
+          <div id="preloader-wrapper">
+            <div id="preloader"></div>
+            <div class="preloader-section section-left"></div>
+            <div class="preloader-section section-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Preference Form Section end-->
+
+    <!--Explore and Learn Section Start Desktop View-->
+    <div id="explore-and-learn" class="container d-sm-block d-none">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <h1 class="section-title">Explore and Learn</h1>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <% popularCategories.forEach((el)=>{ %>
+          <div class="col-md-4">
+            <div class="wrapper">
+              <div class="card">
+                <img src="<%- el.image %>" class="img-raised rounded explore-learn-img"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" />
+                <div class="info">
+                  <h1 class="cat-title">
+                    <%- el.name %>
+                  </h1>
+                  <p class="category-desc">
+                    <%- el.sub_head %>
+                  </p>
+                  <% name=el.name.toLowerCase().replace(/\s/g, '-' ); %>
+                    <button type="button" class="btn btn-primary btn-curve explore-btn exp"
+                      onclick="window.open('/learn-resources/<%-name%>','_self')">Read
+                      More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+      </div>
+    </div>
+    <!--Explore and Learn Section End Desktop View-->
+
+    <!--Explore and Learn Section Start Mobile View-->
+    <div class="container d-sm-none d-block">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <h1 class="section-title">Explore and Learn</h1>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <% popularCategories.forEach((el)=>{ %>
+          <div class="col-md-4">
+            <div class="wrapper">
+              <div class="card">
+                <img src="<%- el.image %>" class="img-raised rounded explore-learn-img"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" />
+                <div class="info text-center">
+                  <h1 style="opacity: 1">
+                    <%- el.name %>
+                  </h1>
+                  <p class="category-desc" style="opacity: 1">
+                    <%- el.sub_head %>
+                  </p>
+                  <button type="button" class="btn btn-primary btn-curve explore-btn exp"
+                    onclick="window.open('/learn-resources/<%-el.name%>','_self')">Read
+                    More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+      </div>
+    </div>
+    <!--Explore and Learn Section End Mobile View-->
+
+    <!--Popular Products Section start-->
+    <div class="container section-explore">
+      <div class="title-div">
+        <h1>Here to help you choose</h1>
+        <p class="title-subhead mt-4">Find the products that are loved by<br /> others and make an informed
+          decision<br />
+          for your
+          requirements.
+        </p>
+      </div>
+      <div class="btn-div">
+        <button type="button" class="btn btn-primary btn-curve explore-btn"
+          onclick="window.open('/popular','_self')">Explore
+          Popular Products</button>
+      </div>
+    </div>
+    <!--Popular Products Section End-->
+
+    <script src="/js/rs.js"></script>
+    <script src="/js/request.js"></script>
+
+    <script>
+      let featured = `<%- JSON.stringify(featured) %>`;
+      featured = JSON.parse(featured);
+    </script>
+    <%- include('_layouts/footer') %>
+      <script src="/js/index.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      <script>
+        function clearPreference() {
+          const preferenceCookie = "rm_preference";
+          eraseCookie(preferenceCookie);
+          location.reload();
+        }
+      </script>
+</body>
+
+</html>

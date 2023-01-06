@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <link rel='stylesheet' href='/css/blogs-detail.css' />
+    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+
+    <div style="background-color:white">
+      <div class="container extra-info" style="margin-top: 70px;">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="section-title mt-5 text-left">
+              <%- blog.name? blog.name : '' %>
+            </h1>
+            <p class="text-left">
+              <%- blog.author ? blog.author : "" %> - <%- blog.created_at? new
+                  Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric' ,month: 'long' , day: 'numeric' })
+                  : '' %>
+            </p>
+            <div class="about-us mt-5">
+              <%- blog && blog.content ? blog.content : '' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <%- include('_layouts/footer') %>
+</body>
+<script src="/js/embed.js"></script>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <link rel="stylesheet" type="text/css" href="/multistep-form/css/nunito-font.css">
+    <link rel="stylesheet" type="text/css"
+      href="/multistep-form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://leapfrogtechnology.github.io/nepali-date-picker/dist/nepaliDatePicker.min.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="/multistep-form/css/style.css" />
+    <style>
+      ::-webkit-input-placeholder {
+        /* Edge */
+        color: #80858e !important;
+      }
+
+      .inner .form-row .form-holder select {
+        color: #80858e;
+      }
+    </style>
+</head>
+
+<body>
+
+  <%- include('_layouts/navbar') %>
+    <div class="page-content">
+      <div class="wizard-v5-content">
+        <div class="wizard-form">
+          <h5 class="text-center p-4 " style="color:White"> You are applying for<br /> <strong
+              style="color:gold;font-weight:800;font-size: 20px;">
+              <%= productName %> -
+            </strong>
+            <strong style="color:gold;font-weight:800;font-size: 20px;">
+              <%=bankName%>.
+            </strong>
+          </h5>
+          <div id="inline-badge" style="display: none"></div>
+
+          <form class="form-register" id="form-register">
+            <div id="form-total">
+              <!-- SECTION 1 -->
+              <div class="form-row">
+                <input type="text" placeholder="" value="<%= productName %>" class="form-control" id="product_name"
+                  name="product_name" style="display: none">
+                <input type="text" placeholder="" value="<%=bankName%>" class="form-control" id="bank_name"
+                  name="bank_name" style="display: none">
+              </div>
+              <h2>
+                <span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+                <span class="step-text">Personal Information</span>
+              </h2>
+              <section>
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <label for="full_name">Full Name</label>
+                      <input type="text" placeholder="" class="form-control required" id="full_name" name="full_name">
+                    </div>
+
+                    <div class="form-holder form-holder-3">
+                      <label for=" phone">Phone Number</label>
+                      <input type="text" placeholder="" class="form-control required" id="phone" name="phone">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <label for="email">Email</label>
+                      <input type="email" onchange="inputEmail()" class="form-control required" id="email" name="email"
+                        pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+                    </div>
+                  </div>
+                  <!-- <div class="form-row">
+                  <div id="radio">
+                    <label for="gender">Gender:</label>
+                    <input type="radio" name="gender" value="male" checked> Male
+                    <input type="radio" name="gender" value="female"> Female
+                  </div>
+                </div> -->
+                </div>
+              </section>
+              <!-- SECTION 2 -->
+              <h2>
+                <span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+                <span class="step-text">Detail Information</span>
+              </h2>
+              <section>
+                <div class="inner">
+                  <div class="form-row">
+                    <p class="pl-3 text-white current_address">Current
+                      Address</p>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <!-- <input type="number" placeholder="Province" class="form-control" id="province" name="province"> -->
+                      <select name="province" id="province" class="form-control" onclick="colorChange()">
+                        <option value="" selected>Select Province</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                      </select>
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <!-- <input type="text" placeholder="District" class="form-control" id="district" name="district"> -->
+                      <select name="district" id="district" class="form-control" onclick="colorChange()">
+                        <option value="" selected>Select District</option>
+                        <option value="Bhojpur">Bhojpur</option>
+                        <option value="Dhankuta">Dhankuta</option>
+                        <option value="Ilam">Ilam</option>
+                        <option value="Jhapa">Jhapa</option>
+                        <option value="Khotang">Khotang</option>
+                        <option value="Okhaldhunga">Okhaldhunga</option>
+                        <option value="Panchthar">Panchthar</option>
+                        <option value="Sankhuwasabha">Sankhuwasabha</option>
+                        <option value="Solukhumbu">Solukhumbu</option>
+                        <option value="Sunsari">Sunsari</option>
+                        <option value="Taplejung">Taplejung</option>
+                        <option value="Terhathum">Terhathum</option>
+                        <option value="Udayapur">Udayapur</option>
+                        <option value="Bara">Bara</option>
+                        <option value="Dhanusa">Dhanusa</option>
+                        <option value="Mahottari">Mahottari</option>
+                        <option value="Parsa">Parsa</option>
+                        <option value="Rautahat">Rautahat</option>
+                        <option value="Saptari">Saptari</option>
+                        <option value="Sarlahi">Sarlahi</option>
+                        <option value="Siraha">Siraha</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Chitwan">Chitwan</option>
+                        <option value="Dhading">Dhading</option>
+                        <option value="Dolakha">Dolakha</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Kavrepalanchok">Kavrepalanchok</option>
+                        <option value="Lalitpur">Lalitpur</option>
+                        <option value="Makwanpur">Makwanpur</option>
+                        <option value="Nuwakot">Nuwakot</option>
+                        <option value="Ramechhap">Ramechhap</option>
+                        <option value="Rasuwa">Rasuwa</option>
+                        <option value="Sindhuli">Sindhuli</option>
+                        <option value="Sindhupalchok">Sindhupalchok</option>
+                        <option value="Baglung">Baglung</option>
+                        <option value="Gorkha">Gorkha</option>
+                        <option value="Kaski">Kaski</option>
+                        <option value="Lamjung">Lamjung</option>
+                        <option value="Manang">Manang</option>
+                        <option value="Mustang">Mustang</option>
+                        <option value="Myagdi">Myagdi</option>
+                        <option value="Nawalpur">Nawalpur</option>
+                        <option value="Parbat">Parbat</option>
+                        <option value="Syangja">Syangja</option>
+                        <option value="Tanahun">Tanahun</option>
+                        <option value="Arghakhanchi">Arghakhanchi</option>
+                        <option value="Banke">Banke</option>
+                        <option value="Bardiya">Bardiya</option>
+                        <option value="Dang">Dang</option>
+                        <option value="Eastern Rukum">Eastern Rukum</option>
+                        <option value="Gulmi">Gulmi</option>
+                        <option value="Kapilvastu">Kapilvastu</option>
+                        <option value="Palpa">Palpa</option>
+                        <option value="Parasi">Parasi</option>
+                        <option value="Pyuthan">Pyuthan</option>
+                        <option value="Rolpa">Rolpa</option>
+                        <option value="Rupandehi">Rupandehi</option>
+                        <option value="Dailekh">Dailekh</option>
+                        <option value="Dolpa">Dolpa</option>
+                        <option value="Humla">Humla</option>
+                        <option value="Jajarkot">Jajarkot</option>
+                        <option value="Jumla">Jumla</option>
+                        <option value="Kalikot">Kalikot</option>
+                        <option value="Mugu">Mugu</option>
+                        <option value="Salyan">Salyan</option>
+                        <option value="Surkhet">Surkhet</option>
+                        <option value="Western Rukum">Western Rukum</option>
+                        <option value="Achham">Achham</option>
+                        <option value="Baitadi">Baitadi</option>
+                        <option value="Bajhang">Bajhang</option>
+                        <option value="Bajura">Bajura</option>
+                        <option value="Dadeldhura">Dadeldhura</option>
+                        <option value="Darchula">Darchula</option>
+                        <option value="Doti">Doti</option>
+                        <option value="Kailali">Kailali</option>
+                        <option value="Kanchanpur">Kanchanpur</option>
+                      </select>
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Municipality" class="form-control" id="municipality"
+                        name="municipality">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Street/Tole" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="number" placeholder="Ward Number" class="form-control" id="ward" name="ward">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="number" placeholder="House Number" class="form-control" id="houseno" name="houseno">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <p class="pl-3 text-white current_address">Citizenship Information</p>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <input type="number" placeholder="Citizenship Number" class="form-control required"
+                        id="citizenship_number" name="citizenship_number">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="नागरिकता जारी मिती छान्नुहोस्"
+                        class="form-control bod-picker required" id="issuing_date" name="issuing_date">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Issuing District" class="form-control required"
+                        id="issuing_district" name="issuing_district">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <label for="birth_bs">DOB in BS</label>
+                      <input type="text" placeholder="जन्म मिती छान्नुहोस्" class="form-control bod-picker"
+                        id="birth_bs" name="birth_bs" value="">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <label for="birth_ad">DOB in AD</label>
+                      <input type="text" placeholder="Enter DOB" class="form-control " onfocus="(this.type='date')"
+                        id="birth_ad" name="birth_ad" value="">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <label for="closest_branch">Closest Branch</label>
+                      <input type="text" placeholder="" class="form-control" id="closest_branch" name="closest_branch">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <p class="pl-3 text-white current_address">Detail of Family Member</p>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Spouse Full Name" class="form-control" id="spouse" name="spouse">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Father Full Name" class="form-control" id="father" name="father">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Mother Full Name" class="form-control" id="mother" name="mother">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Grand Father Full Name" class="form-control" id="grand_father"
+                        name="grand_father">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Son Full Name" class="form-control" id="son" name="son">
+                    </div>
+                    <div class="form-holder form-holder-3">
+                      <input type="text" placeholder="Daughter Full Name" class="form-control" id="daughter"
+                        name="daughter">
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="account_token" name='token'>
+              </section>
+              <!-- SECTION 3 -->
+              <h2>
+                <span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+                <span class="step-text">Confirm Details</span>
+              </h2>
+              <section>
+                <div class="inner">
+                  <h3>Confirm Details</h3>
+                  <div class="form-row table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr class="space-row">
+                          <th>Full Name:</th>
+                          <td id="fullname-val"></td>
+                        </tr>
+                        <!-- <tr class="space-row">
+                        <th>Gender:</th>
+                        <td id="gender-val"></td>
+                      </tr> -->
+                        <tr class="space-row">
+                          <th>Phone Number:</th>
+                          <td id="phone-val"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Email Address:</th>
+                          <td id="email-val"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Closest Branch:</th>
+                          <td id="closest-branch"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Current Address:</th>
+                          <td id="address-val"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Citizenship Information:</th>
+                          <td id="citizenship-information"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Date of Birth:</th>
+                          <td id="date-of-birth"></td>
+                        </tr>
+                        <tr class="space-row">
+                          <th>Family Information:</th>
+                          <td id="family-information"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <button id="apply-now-submit" class="btn btn-lg btn-warning btn-rounded ml-5 mt-4">
+                    <span>
+                      Submit
+                      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                  <div class="mt-4 mb-0" id="msg">
+                  </div>
+                  <div id="form-loader" style="position: absolute; top:85%; left:23%;">
+                    <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('_layouts/footer') %>
+      <script src="/multistep-form/js/jquery-3.3.1.min.js"></script>
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+      <script src="/multistep-form/js/jquery.steps.js"></script>
+      <script src="/multistep-form/js/main.js"></script>
+      <script src="https://leapfrogtechnology.github.io/nepali-date-picker/dist/nepaliDatePicker.min.js"></script>
+      <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      <script>
+        function onRecaptchaLoadCallback() {
+          var clientId = grecaptcha.render('inline-badge', {
+            'sitekey': '6LfVxswUAAAAAMmivj-LhGUFDJZBgiADvYp7BzP0',
+            'badge': 'inline',
+            'size': 'invisible'
+          });
+          grecaptcha.ready(() => {
+            grecaptcha.execute(clientId, { action: 'submit' }).then((token) => {
+              document.getElementById("account_token").value = token;
+            });
+            $("#form-loader").css("display", "none");
+            $("#form-register").on('submit', (e) => {
+              e.preventDefault();
+              $("#form-loader").css("display", "");
+              const fdata = $('form').serializeArray();
+              let data = {};
+              $.map(fdata, (n, i) => {
+                data[n.name] = n.value;
+              });
+              $.ajax({
+                type: 'POST',
+                url: '/api/v1/apply-now-submit',
+                data,
+              })
+                .done((d) => {
+                  $("#form-loader").css("display", "none");
+                  $('#msg').html(d).addClass('alert alert-success');
+                  setInterval(() => {
+                    window.location.replace("/");
+                  }, 5000);
+                })
+                .fail((e) => {
+                  $('#msg').html('<p>Sorry, There Has Been An Error!</p>').addClass('alert alert-danger');
+                });
+            });
+          })
+        }
+      </script>
+      <script>
+        function inputEmail() {
+          const fdata = $('form').serializeArray();
+          let data = {};
+          $.map(fdata, (n, i) => {
+            data[n.name] = n.value;
+          });
+          if (data.full_name != "" && data.phone != "" && data.email != "") {
+            $.ajax({
+              type: 'POST',
+              url: '/api/v1/apply-now-first-information-submit',
+              data,
+            })
+          };
+        }
+      </script>
+      <script>
+        $('input[name="birth_bs"]').on("dateSelect", function (event) {
+          const engDate = calendarFunctions.getAdDateByBsDate(event.datePickerData.bsYear, event.datePickerData.bsMonth, event.datePickerData.bsDate);
+          const formattedEngDate = moment(engDate).format('YYYY-MM-DD');
+          $("#birth_ad").val(formattedEngDate);
+          // $("#birth_ad").attr("disabled", "true");
+          $("#birth_ad").css("opacity", "0.9");
+        })
+
+        $(".bod-picker").nepaliDatePicker({
+          dateFormat: "%y-%m-%d"
+        });
+
+        $('input[name="birth_ad"]').change(function () {
+          let engDate = $("#birth_ad").val();
+          engDate = engDate.split("-");
+          const nepDate = calendarFunctions.getBsDateByAdDate(Number(engDate[0]), Number(engDate[1]), Number(engDate[2]));
+          const formattedNepDate = calendarFunctions.getNepaliNumber(nepDate.bsYear) + "-" + calendarFunctions.getNepaliNumber(nepDate.bsMonth) + "-" + calendarFunctions.getNepaliNumber(nepDate.bsDate);
+          $("#birth_bs").val(formattedNepDate);
+          // $("#birth_bs").attr("disabled", "true");
+          $("#birth_bs").css("opacity", "0.9");
+        })
+        function colorChange() {
+          $(".inner .form-row .form-holder select").css("color", "#000", "important");
+          $(".inner .form-row .form-holder select").css("font-weight", "400", "important");
+
+        }
+      </script>
+</body>
+
+</html>

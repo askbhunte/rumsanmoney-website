@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <Style>
+      .popular-desc p {
+        color: #000000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+
+      .icon.icon-info img {
+        height: 200px;
+        max-width: 200px;
+        object-fit: contain;
+        object-position: center;
+      }
+    </Style>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <div class="container">
+      <div class="row explore-header">
+        <div class="col-md-12 text-center mob-explore-container">
+          <h1 class="section-title">You May Like</h1>
+          <p class="section-subtitle mt-2"></p>
+        </div>
+      </div>
+      <div class="features mb-4">
+        <div id="preferredCategory" class="row">
+
+        </div>
+      </div>
+      <!-- Desktop View Only Starts-->
+      <div class="row">
+        <div class="col-12">
+          <div class="contact-box shadow mb-5 d-none d-sm-block">
+            <p class="mb-0 text-center"><span class="b-text-contact" style="color: #fff;">Do you want
+                to change your
+                preference?<button class="contact-btn" onclick="clearPreference()">Clear Preference</button>
+                <button class="explore-btn" onclick="window.location.href='/resources'"
+                  style="margin-left: 12px;">Explore More Categories</button>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Desktop View Only Ends -->
+      <!-- Mobile View Only Starts -->
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-5 d-block d-sm-none">
+            <button class="explore-btn" onclick="clearPreference()">Clear Preference</button>
+            <button class="explore-btn" onclick="window.location.href='/resources'" style="margin-left: 12px;">Explore
+              More Categories</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile View Only Ends -->
+    </div>
+    <%- include('_layouts/footer') %>
+      <script>
+        function clearPreference() {
+          const preferenceCookie = "rm_preference";
+          eraseCookie(preferenceCookie);
+          window.location.href = '/#preference-form-section'
+        }
+      </script>
+      <script>
+        function prefferedCategoyList(data) {
+          data.forEach((el) => {
+            $('#preferredCategory').append(`
+            <div class="col-12 col-md-4">
+              <div class="card-preference shadow text-center mb-5 ml-3" style="width:350px">
+                <img class="card-preference-img-top" src="${el.image}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80	';" alt="Card image" style="width:100%">
+                <div class="card-preference-body">
+                  <h3 class="card-preference-title" style="color: rgb(13, 85, 114)">${el.name ? el.name : '-'}</h3>
+                  <p class="card-preference-text short-title">${el.sub_head ? el.sub_head : '-'}</p>
+                  <button type="button" class="btn btn-primary btn-curve explore-btn" onclick="window.open('/${el.type}?type=${el.name}','_self')" style="margin-left:0px">See Products</button>
+                </div>
+              </div>
+            </div>`);
+          });
+        }
+
+      </script>
+
+</body>
+
+</html>

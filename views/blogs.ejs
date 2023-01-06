@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top ">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <!--Slide to top button ends-->
+
+
+    <!--Explore and Learn Section Start-->
+    <div class="container d-sm-block d-none">
+      <div class="row explore-header">
+        <div class="col-md-12 text-center mob-explore-container">
+          <h1 class="section-title">Blogs</h1>
+        </div>
+      </div>
+      <div class="row mt-0 mb-5" id="appendDiv">
+      </div>
+    </div>
+    <!--Explore and Learn Section End-->
+
+    <div class="container d-sm-none d-block">
+      <div class="container ">
+        <div class="row explore-header">
+          <div class="col-md-12 text-center mob-explore-container">
+            <h1 class="section-title">Blogs</h1>
+          </div>
+        </div>
+        <div class="row mt-0 mb-4" id="mobAppend">
+        </div>
+      </div>
+    </div>
+    <%- include('_layouts/footer') %>
+      <script>
+        async function fetchBlogs({ start, limit }) {
+          return $.ajax({
+            method: "GET",
+            url: `/api/v1/blogs?start=${start}&limit=${limit}`,
+          })
+            .then(d => d)
+        }
+      </script>
+      <script>
+        let start = 0, limit = 20, hasMore = true;
+        async function loadBlogs(start) {
+          const blogs = await fetchBlogs({ start, limit });
+          const appendDiv = document.getElementById('appendDiv');
+          const mobAppend = document.getElementById('mobAppend');
+          const totalPage = Math.ceil(blogs.total / blogs.limit);
+          if (blogs.page == totalPage) {
+            hasMore = false;
+          }
+          blogs.data.forEach((el) => {
+            let date = new Date(el.created_at)
+            appendDiv.innerHTML += `
+            <div class="card-container col-md-4">
+              <div class="custom-card">                 
+                <div class="img-hover-zoom">    
+                  <a href="/blogs/${el.slug}">                 
+                    <img class="card-img-top" src="${el.image_url}" style="filter:brightness(0.5)" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" rel="nofollow" alt="Card image cap">
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">${el.name ? el.name : ""}</h4>
+                  <h6 class="card-subtitle mb-2 text-muted">${el.author ? el.author : ""} - ${new Date(el.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</h6>                
+                  <p class="card-text category-desc blog-text">${el.excerpt ? el.excerpt : ""}</p>                
+                </div>
+                <div class="mx-4 d-flex justify-content-center">
+                  <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn mb-3" style="opacity: 1;"
+                            onclick="window.open('/blogs/${el.slug}','_self')">
+                            Read More
+                  </button>
+                </div>
+            </div>`;
+
+            mobAppend.innerHTML += `
+            <div class="card-container col-md-4">
+              <div class="custom-card">
+                <div class="img-hover-zoom">
+                  <a href="/blogs/${el.slug}">
+                    <img class="card-img-top" src="${el.image_url}" style="filter:brightness(0.5)" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" rel="nofollow" alt="Card image cap">
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">${el.name ? el.name : ""}</h4>
+                  <h6 class="card-subtitle mb-2 text-muted">${new Date(el.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</h6>                
+                  <p class="card-text category-desc blog-text">${el.excerpt ? el.excerpt : ""}</p>                
+                </div>
+                <div class="mx-4 d-flex justify-content-center">
+                  <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn mb-3" style="opacity: 1;"
+                            onclick="window.open('/blogs/${el.slug}','_self')">
+                            Read More
+                  </button>
+                </div>
+            </div>`;
+          });
+        }
+        loadBlogs(start);
+
+        let callFunction = true;
+        window.addEventListener('scroll', () => {
+          if (callFunction && hasMore && $(window).scrollTop() + $(window).height() >= $('#footer-card').offset().top + $('#footer-card').height() * 0) {
+            callFunction = false;
+            loadBlogs(start += limit);
+            setTimeout(() => {
+              callFunction = true;
+            }, 2000);
+          }
+        }, {
+          passive: true
+        });
+      </script>
+</body>
+<script src="/js/resourcesListener.js"></script>
+
+</html>

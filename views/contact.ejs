@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <div class='container'>
+      <div class='form-card'>
+        <div class='form-img'>
+          <img src="https://assets.rumsan.com/askbhunte/assets/rumsanmoney-blk-0003.png	"
+            onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/rumsanmoney-blk-0003.png	';">
+        </div>
+        <div class='form-detail'>
+
+          <p>Enter Your Information</p>
+          <form id="contactBankForm" class="contact-bank-form">
+            <div class="form-group">
+              <!--<label for="name">Name</label>-->
+              <input id="name" name="name" class="form-control" type="text" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <!--<label for="bumber">Contact Number</label>-->
+              <input id="phone" name="phone" class="form-control" type="text" placeholder="Contact Number" required>
+            </div>
+            <div class="form-group">
+              <!--<label for="email">Email</label>-->
+              <input id="email" name="email" class="form-control" type="text" placeholder="Email" required>
+            </div>
+            <div class="form-submit-wrapper">
+              <button type="submit" class="btn btn-primary contact-bank-btn">Submit</button>
+            </div>
+            <div id="form-loader" style="text-align: center;margin-top: 20px;">
+              <div class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <div class="contact-bank-success" id="msg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="inline-badge" style="display: none"></div>
+
+    <%- include('_layouts/footer') %>
+      <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>
+      <script src="/js/rs.js"></script>
+      <script>
+        let productName = `<%-JSON.stringify(productName)%>`;
+        productName = JSON.parse(productName);
+        let bankName = `<%-JSON.stringify(bankName)%>`;
+        bankName = JSON.parse(bankName);
+        let bName = bankName.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+        let pName = productName.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+        function onRecaptchaLoadCallback() {
+          var clientId = grecaptcha.render('inline-badge', {
+            'sitekey': '6LfVxswUAAAAAMmivj-LhGUFDJZBgiADvYp7BzP0',
+            'badge': 'inline',
+            'size': 'invisible'
+          });
+          let token;
+          grecaptcha.ready(() => {
+            grecaptcha.execute(clientId, { action: 'submit' }).then((t) => {
+              token = t;
+            });
+            $("#form-loader").css("display", "none");
+            $("#contactBankForm").on('submit', (e) => {
+              e.preventDefault();
+              $("#form-loader").css("display", "");
+              let data = rs.form.get("#contactBankForm");
+              data.token = token;
+              data.bank = bankName;
+              data.product = productName;
+              data.cookieName = cookieDetail.name;
+              $.ajax({
+                type: 'POST',
+                url: '/api/v1/contact-bank-form-submit',
+                data
+              })
+                .done((d) => {
+                  $("#form-loader").css("display", "none");
+                  $('#msg').html(d).addClass('alert alert-success');
+                  postHistory(cookieDetail._id, `Conact form submitted - ${pName} - ${bName}`);
+                  setInterval(() => {
+                    window.location.replace("/");
+                  }, 5000);
+                })
+                .fail((e) => {
+                  $('#msg').html('<p>Sorry, There Has Been An Error!</p>').addClass('alert alert-danger');
+                });
+            });
+          })
+        }
+      </script>
+</body>
+
+</html>

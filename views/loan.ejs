@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <!--Slide to top button ends-->
+    <div class="container">
+      <div class="row">
+        <!--Left Column Start-->
+        <div class="col-md-3 loan-list">
+          <h3>Loan</h3>
+          <% categories.forEach((el)=>{ %>
+            <button class="category-list btn-transparent" onclick="aloanListBtn(this,'loan')">
+              <%- el.name%>
+            </button>
+            <br>
+            <% }) %>
+        </div>
+        <div class="col-md-12 mob-loan-list">
+          <h3>Loans</h3>
+          <div class="select mt-3">
+            <select class="loan-list-select" id="loan-list-select">
+              <% categories.forEach((el)=>{ %>
+                <option type='loan'>
+                  <%- el.name%>
+                </option>
+                <% }) %>
+            </select>
+          </div>
+        </div>
+        <!--Left Column End-->
+        <!--Right Column Start-->
+        <div class="col-md-9 loan-card-col">
+          <div class="container mt-5 mobile-sort-margin">
+            <section class="custom-category">
+              <div id="loader" class="text-center">
+                <div class="spinner-border text-dark mb-5" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div id="loanCard" class="loan-card">
+              </div>
+            </section>
+          </div>
+        </div>
+        <!--Right Column End-->
+      </div>
+    </div>
+    <div id="compare-div" class="compare-popup fixed-bottom">
+      <div class="container mob-p-x-5">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-9 row compare-row">
+          </div>
+          <div class="col-xs-12 col-sm-2 col-md-3 d-flex align-items-center justify-content-center">
+            <button class="btn btn-primary btn-curve btn-mob-view" id="compare_button">
+              Compare
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function fetchProducts({ start, limit, type, ptype }) {
+        return $.ajax({
+          method: "GET",
+          url: `/api/v1/products?start=${start}&limit=${limit}&type=${type}&ptype=${ptype}`,
+        })
+          .then(d => d)
+      }
+    </script>
+
+    <script>
+      let currentLoanData = [];
+
+      let type = `<%-JSON.stringify(type)%>`;
+      type = JSON.parse(type);
+      document.getElementById("loan-list-select").value = type;
+
+      let start = 0, limit = 20;
+
+      const loanCard = document.getElementById('loanCard');
+
+      async function appendContent({ start, ptype }) {
+        let data = await fetchProducts({ start, limit, ptype, type: 'loan' });
+
+        let totalPages = Math.ceil(data.total / data.limit);
+        if (totalPages === data.page) {
+          hasMore = false
+        }
+        //if (start != 0 && data.total == 0) return; // if there are no more Next Data then return
+        let products = data.data;
+
+        currentLoanData.push(...products);
+        currentLoanData.sort((a, b) => a.name > b.name && 1 || -1);
+
+        if (start === 0 && currentLoanData.length === 0) {
+          loanCard.innerHTML = `<div class="each-loan-card">
+                                  <div class="row" style ="padding:20px 0"> Sorry we dont have any products lately...</div>
+                                </div>`;
+        }
+        else {
+          loanCard.innerHTML = '';
+          currentLoanData.forEach((el) => {
+            loanCard.innerHTML += `
+            <div class="each-loan-card">
+                      <div class="row">
+                        <div class="col-md-3 first mt-3">
+                          <div class="col-md-12 product-title">
+                            <h5 class="pro-title text-center mb-2 mt-2">
+                              ${el.name}
+                            </h5>
+                          </div>
+                          <div class="img-container">
+                            <img src="${el.bankinfo.product_url}"
+                              onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                              alt="${el.bankinfo.name ? el.bankinfo.name : ''}">
+                          </div>
+                          <h5 class="text-center mt-2">
+                            <a class="bankName" href="/banks/${el.bankinfo.slug}" style="color:#000;">
+                              ${el.bankinfo.name}
+                            </a>
+                          </h5>
+                        </div>
+                        <div class="col-md-6 second mt-3">
+                          <div class="row pb-0">
+                            <div class="col-md-12">
+                              <p>
+                                ${el.description ? el.description : el.categoryinfo.sub_head}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row pb-3">
+                            <div class="col-md-12">
+                              <div class="interest_rate">
+                                <p>
+                                  Total Interest Rate
+                                </p>
+                                <ul class="mb-0">
+                                  <li class="interest_rate_add">
+                                    ${(el.interest_rate + el.base_rate) ? Math.round(((el.interest_rate + el.base_rate) + Number.EPSILON) * 100) / 100 : 'N/A'} %
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <!--<div class="row tags-container">
+                      <div class="each-tags">
+                        Loan
+                      </div>
+                      <div class="each-tags">
+                        Home Loan
+                      </div>
+                      <div class="each-tags">
+                        Most Popular
+                      </div>
+                      <div class="each-tags">
+                        Trending
+                      </div>
+                      </div>-->
+                        </div>
+                        <div data-bank="${el.bankinfo.name ? el.bankinfo.name : ''}"
+                          data-product="${el.name ? el.name : ''}" class="col-md-3 third mt-3">
+                          <button type="button" class="learnMoreBtn btn btn-primary btn-curve"
+                            onclick="window.open('/learn/${el.bankinfo.slug ? el.bankinfo.slug : 'N/A'}/${el.slug ? el.slug : 'N/A'}','_self')">
+                            Learn More
+                          </button >
+                          <button type="button" class="contactBankBtn btn btn-primary btn-curve"
+                            onclick="window.open('/contact/${el.bankinfo.slug ? el.bankinfo.slug : 'N/A'}/${el.slug ? el.slug : 'N/A'}', '_self')">
+                            Contact Bank
+                          </button >
+                        <div class="custom-checkbox">
+                          <input class="listen-checkbox" type="checkbox" id="${el._id ? el._id : 'N/A'}"
+                            autocomplete='off' value="${el.name ? el.name : 'N/A'}"
+                            onclick="addToCompare(this, '${el.bankinfo.product_url}')">
+                            <p class="mb-0 ml-3">Select to compare</p>
+                                        </div>
+                        </div>
+                      </div >
+                    </div >
+          `;
+          })
+        }
+      }
+
+      appendContent({ start, ptype: type });
+
+      let callFunction = true;
+      let hasMore = true;
+      window.addEventListener('scroll', () => {
+        if (callFunction && hasMore && $(window).scrollTop() + $(window).height() >= $('#footer-card').offset().top + $('#footer-card').height() * 0) {
+          callFunction = false;
+          appendContent({ start: start += limit, ptype: type });
+          setTimeout(() => {
+            callFunction = true;
+          }, 2000);
+        }
+      }, {
+        passive: true
+      });
+
+    </script>
+    <%- include('_layouts/footer') %>
+      <script src="/js/categoryActive.js"></script>
+      <script src="/js/LSIEventListeners.js"></script>
+</body>
+
+</html>

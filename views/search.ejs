@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+  <%- include('_layouts/header') %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+  <%- include('_layouts/navbar') %>
+  <div class="container mt-5">
+    <script async src="https://cse.google.com/cse.js?cx=c24699854e428232d"></script>
+    <div class="gcse-search"></div>
+    <div id="search-result" class="d-flex justify-content-center align-items-center flex-row "
+      style="padding-top:5rem;margin-bottom:6.5rem;">
+      <i class="fa fa-search" style="font-size: 100px;color:#06607f;"></i>
+      <h3 style="color:#06607f">Your search results </br>&nbsp&nbsp&nbsp will appear here...</h3>
+    </div>
+  </div>
+  <%- include('_layouts/footer') %>
+
+  <script>
+    window.onload = ((e) => {
+      $('.gsc-search-button').unbind("click").click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if ($("#gsc-i-id1").val().length > 0) {
+          postHistory(cookieDetail._id, `GSearch - ${$("#gsc-i-id1").val()}`)
+          setTimeout(() => {
+            $('#search-result').removeClass("d-flex").addClass("d-none");
+          }, 500);
+        }
+      });
+      $("#gsc-iw-id1").keyup(function (el) {
+        if (el.keyCode == 13) {
+          postHistory(cookieDetail._id, `GSearch - ${el.target.value}`)
+          if (el.target.value) {
+            setTimeout(() => {
+              $('#search-result').removeClass("d-flex").addClass("d-none");
+            }, 500);
+          }
+        }
+      });
+    })
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    if (vars["gsc.q"]) {
+      setTimeout(() => {
+        $('#search-result').removeClass("d-flex").addClass("d-none");
+      }, 500);
+    }
+  </script>
+</body>
+
+</html>

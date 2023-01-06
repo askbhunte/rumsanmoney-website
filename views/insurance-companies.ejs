@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <Style>
+      .icon.icon-info img {
+        height: 200px;
+        max-width: 300px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .info-title {
+        font-size: 20px;
+
+      }
+
+      .popular-desc:hover {
+        cursor: pointer;
+      }
+
+      .info .info-title {
+        margin: 0px;
+      }
+
+      .info {
+        padding: 0px;
+      }
+    </Style>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <div class="container">
+      <div class="row explore-header">
+        <div class="col-md-12 text-center mob-explore-container">
+          <h1 class="section-title">All Insurance Companies</h1>
+          <!-- <p class="section-subtitle mt-2">Find the products that are loved by others and make an <br />informed
+          decision
+          for your
+          requirements.</p> -->
+        </div>
+      </div>
+      <div class="features mb-4">
+        <div class="row" id="appendDiv">
+          <% companies.forEach((el)=>{ %>
+            <div class="col-md-4">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+                <div class="popular-desc info text-center"
+                  onclick="window.open('/insurance-companies/<%-el.slug?el.slug:'#'%>','_self')">
+                  <div class="icon icon-info">
+                    <img class="img-fluid" src="<%= el.image%>"
+                      onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                      alt="<%= el.name ? el.name :"" %>" />
+                  </div>
+                  <!-- <h4 class="info-title mb-5" style="font-family: Gilroy">
+                <%= el.name ? el.name :"" %>
+              </h4> -->
+                </div>
+              </div>
+            </div>
+            <%}); %>
+        </div>
+      </div>
+    </div>
+
+    <%- include('_layouts/footer') %>
+      <script>
+        let count = 0;
+        let callFunction = true;
+        $(window).scroll(() => {
+          if (callFunction && $(window).scrollTop() > $('body').height() / 2 /*$(window).scrollTop() + $(window).height() >= $('#footer-card').offset().top + $('#footer-card').height() * 0*/) {
+            loadMore(count += 20);
+            callFunction = false;
+            setTimeout(() => {
+              callFunction = true;
+            }, 1500);
+          }
+        });
+        function loadMore(count) {
+          $.ajax({
+            method: "GET",
+            url: `/api/v1/companies?start=${count}`,
+          })
+            .then(d => {
+              d.data.forEach(el => {
+                $('#appendDiv').append(`
+              <div class="col-md-4">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                  <div class="popular-desc info text-center"
+                    onclick="window.open('/insurance-companies/${el.slug ? el.slug : '#'}','_self')">
+                    <div class="icon icon-info">
+                      <img class="img-fluid" src="${el.image}"
+                        onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                        alt="${el.name ? el.name : ""}" />
+                    </div>
+                    <!-- <h4 class="info-title mb-5" style="font-family: Gilroy">
+                      ${el.name ? el.name : ""}
+                    </h4> -->
+                  </div>
+                </div>
+              </div>
+              `);
+              });
+            })
+            .catch(e => console.log(e))
+        }
+      </script>
+      <script src='/js/banksEventListener.js'></script>
+
+</body>
+
+</html>

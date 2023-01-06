@@ -1,0 +1,30 @@
+{
+  "app": {
+    "name": "bhuntemoney-website",
+    "port": 9900,
+    "secret": "G4qzBc4nvv1x@ebi0rf^C%jy$zPdTk!R",
+    "url": "https://rumsanmoney.com",
+    "db": "mongodb://askbhunte_mongodb:27017/rs-money"
+  },
+  "services": {
+    "gsheet": {
+      "docId": "",
+      "tabNumber": "1"
+    }
+  },
+  "api": {
+    "baseUrl": "https://loanman.askbhunte.com/api/v1",
+    "banks": "/banks",
+    "blogs": "/blogs",
+    "products": "/products",
+    "categories": "/categories",
+    "insurances": "/insurances",
+    "featured": "/featured",
+    "requests": "/requests/add-from-site",
+    "companies": "/companies",
+    "cookies": "/cookies",
+    "histories": "/histories",
+    "pages": "/pages",
+    "preference": "/preference"
+  }
+}

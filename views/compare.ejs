@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('_layouts/header') %>
+
+</head>
+
+<body>
+    <%- include('_layouts/navbar') %>
+
+
+        <div class="container">
+            <div class="row explore-header">
+                <div class="col-md-12 text-center mob-explore-container">
+                    <h1 class="section-title">COMPARE BANK PRODUCTS</h1>
+                    <p class="section-subtitle mt-2">Please select the Product type, Banks and the
+                        products
+                        to compare<br /> and to
+                        choose
+                        the best
+                        one for you</p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 4rem;">
+                <div class="col-md-4 p-0">
+                    <div class="compare-card">
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Bank
+                            </h4>
+                            <div id="loader_select_1">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="bank_1_select" class="px-2 custom-select">
+                                <option value="" disabled selected hidden>Select an option...</option>
+                            </select>
+                        </div>
+
+
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Product
+                            </h4>
+                            <div id="product_loader_select_1">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="product_1_select" class="px-2  custom-select">
+                                <option value="" disabled selected hidden>Select a Bank first</option>
+                            </select>
+                        </div>
+
+
+                        <div id="loader_1" class="col-md-12 text-center mt-5">
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div id="card_1" class="compare-data">
+                            Please select a Bank and a Product Name to display Data.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0">
+                    <div class="compare-card">
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Bank
+                            </h4>
+                            <div id="loader_select_2">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="bank_2_select" class="px-2 custom-select">
+                                <option value="" disabled selected hidden>Select an option...</option>
+                            </select>
+                        </div>
+
+
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Product
+                            </h4>
+                            <div id="product_loader_select_2">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="product_2_select" class="px-2  custom-select">
+                                <option value="" disabled selected hidden>Select a Bank first</option>
+                            </select>
+                        </div>
+
+
+                        <div id="loader_2" class="col-md-12 text-center mt-5">
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div id="card_2" class="compare-data">
+                            Please select a Bank and a Product Name to display Data.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0">
+                    <div class="compare-card">
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Bank
+                            </h4>
+                            <div id="loader_select_3">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="bank_3_select" class="px-2 custom-select">
+                                <option value="" disabled selected hidden>Select an option...</option>
+                            </select>
+                        </div>
+
+
+                        <div class="row p-l-r-15">
+                            <h4 class="font-weight-bold recommendations-mob-title">
+                                Select Product
+                            </h4>
+                            <div id="product_loader_select_3">
+                                <div class="spinner-border spinner-border-sm ml-3 mt-3" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" class="d-flex justify-content-center">
+                            <select id="product_3_select" class="px-2  custom-select">
+                                <option value="" disabled selected hidden>Select a Bank first</option>
+                            </select>
+                        </div>
+
+
+                        <div id="loader_3" class="col-md-12 text-center mt-5">
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div id="card_3" class="compare-data">
+                            Please select a Bank and a Product Name to display Data.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('_layouts/footer') %>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+            <script>
+
+                let selectedBank_1, selectedBank_2, selectedBank_3;
+                let selectedProduct_1, selectedProduct_2, selectedProduct_3;
+
+                $('#loader_1').hide();
+                $('#loader_2').hide();
+                $('#loader_3').hide();
+
+                $('#product_loader_select_1').hide();
+                $('#product_loader_select_2').hide();
+                $('#product_loader_select_3').hide();
+
+                let incomingId = `<%- JSON.stringify(data) %>`;
+                incomingId = JSON.parse(incomingId);
+
+                let banks = `<%-JSON.stringify(banks)%>`;
+                banks = JSON.parse(banks);
+
+                let products = `<%-JSON.stringify(products)%>`;
+                products = JSON.parse(products);
+
+                if (incomingId[0]) {
+                    incomingId[0] = products.filter((el) => el._id === incomingId[0])[0];
+                    selectedProduct_1 = incomingId[0]._id;
+                    selectedBank_1 = incomingId[0].bankinfo.name;
+                }
+                if (incomingId[1]) {
+                    incomingId[1] = products.filter((el) => el._id === incomingId[1])[0];
+                    selectedProduct_2 = incomingId[1]._id;
+                    selectedBank_2 = incomingId[1].bankinfo.name;
+                }
+                if (incomingId[2]) {
+                    incomingId[2] = products.filter((el) => el._id === incomingId[2])[0];
+                    selectedProduct_3 = incomingId[2]._id;
+                    selectedBank_3 = incomingId[2].bankinfo.name;
+                }
+
+                let mainElement;
+                let mainType;
+
+                banks.forEach((el) => {
+                    if (el.name) {
+                        if (incomingId[0]) {
+                            if (el.name === incomingId[0].name) {
+                                $('#bank_1_select').append(`
+                                    <option selected>${el.name}</option>
+                                `);
+                            }
+                            else {
+                                $('#bank_1_select').append(`
+                                    <option>${el.name}</option>
+                                `);
+                            }
+                        }
+                        else {
+                            $('#bank_1_select').append(`
+                                <option>${el.name}</option>
+                            `);
+                        }
+                    }
+                });
+                $('#loader_select_1').hide();
+
+                banks.forEach((el) => {
+                    if (el.name) {
+                        if (incomingId[1]) {
+                            if (el.name === incomingId[1].name) {
+                                $('#bank_2_select').append(`
+                                    <option selected>${el.name}</option>
+                                `);
+                            }
+                            else {
+                                $('#bank_2_select').append(`
+                                    <option>${el.name}</option>
+                                `);
+                            }
+                        }
+                        else {
+                            $('#bank_2_select').append(`
+                                <option>${el.name}</option>
+                            `);
+                        }
+                    }
+                });
+                $('#loader_select_2').hide();
+
+                banks.forEach((el) => {
+                    if (el.name) {
+                        if (incomingId[2]) {
+                            if (el.name === incomingId[2].name) {
+                                $('#bank_3_select').append(`
+                                    <option selected>${el.name}</option>
+                                `);
+                            }
+                            else {
+                                $('#bank_3_select').append(`
+                                    <option>${el.name}</option>
+                                `);
+                            }
+                        }
+                        else {
+                            $('#bank_3_select').append(`
+                                <option>${el.name}</option>
+                            `);
+                        }
+                    }
+                });
+                $('#loader_select_3').hide();
+
+
+
+                $('#product_1_select').on('change', async function () {
+                    selectedProduct_1 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "1") {
+
+
+                        $('#card_1').empty();
+                        $('#loader_1').show();
+
+                        let prod_1 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_1}`);
+                        prod_1 = await prod_1.json();
+
+                        if (prod_1.ptype !== mainType && selectedBank_2) {
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${prod_1.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_2').hide();
+                            /*$('#card_2').empty();
+                            $('#card_2').append(`Please select a Bank and a Product Name to display Data.`);*/
+                            $('#card_2').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_2').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_2').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+
+
+                        }
+                        if (prod_1.ptype !== mainType && selectedBank_3) {
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                            <option value = "" disabled selected hidden > Select a Product Name</option>
+                        `);
+                            $('#product_loader_select_3').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${prod_1.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_3').hide();
+                            $('#card_3').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_3').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_3').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                        }
+                        mainType = prod_1.ptype; let prod_1_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&name=${prod_1.name}&limit=1000`);
+                        prod_1_full = await prod_1_full.json();
+                        prod_1_full = prod_1_full.data[0];
+                        $('#card_1').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_1_full.bankinfo.logo_url ? prod_1_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div> 
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_1_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_1_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_1_full.loan_type === 'loan' ? Math.round(((prod_1_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_1_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div > <hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_1_full.bankinfo.slug ? prod_1_full.bankinfo.slug : "N/A"}/${prod_1_full.slug ? prod_1_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_1_full.bankinfo.slug}/${prod_1_full.slug}','_self')">Learn More</button>
+                    </div>
+
+                        <div class=" text-center mt-0">
+                            <p class="last-updated">Last Updated On ${prod_1_full.updated_at ? moment(prod_1_full.updated_at).format('LL') : "N/A"}</p>
+                        </div>
+                    `);
+                        $('#loader_1').hide();
+                    }
+                    else if (mainElement && mainElement !== "1") {
+                        $('#card_1').empty();
+                        $('#loader_1').show();
+                        let prod_1 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_1}`);
+                        prod_1 = await prod_1.json();
+                        let prod_1_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&name=${prod_1.name}&limit=1000`);
+                        prod_1_full = await prod_1_full.json();
+                        prod_1_full = prod_1_full.data[0];
+                        $('#card_1').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_1_full.bankinfo.logo_url ? prod_1_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div> 
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_1_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_1_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_1_full.loan_type === 'loan' ? Math.round(((prod_1_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_1_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div><hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_1_full.bankinfo.slug ? prod_1_full.bankinfo.slug : "N/A"}/${prod_1_full.slug ? prod_1_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_1_full.bankinfo.slug}/${prod_1_full.slug}','_self')">Learn More</button>
+                    </div>                    
+                    <div class =" text-center mt-0">
+                        <p class="last-updated">Last Updated On ${prod_1_full.updated_at ? moment(prod_1_full.updated_at).format('LL') : "N/A"}</p>
+                    </div>                                            
+                `)
+                        $('#loader_1').hide();
+                    }
+                    else if (!mainElement) {
+                        mainElement = "1";
+                        $('#card_1').empty();
+                        $('#loader_1').show();
+                        let prod_1 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_1}`);
+                        prod_1 = await prod_1.json();
+                        mainType = prod_1.ptype;
+                        let prod_1_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&name=${prod_1.name}&limit=1000`);
+                        prod_1_full = await prod_1_full.json();
+                        prod_1_full = prod_1_full.data[0];
+                        $('#card_1').append(`
+                            <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${prod_1_full.bankinfo.logo_url ? prod_1_full.bankinfo.logo_url : ""}">
+                                </div>
+                            </div>                   
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0"> ${prod_1_full.name} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${prod_1_full.ptype} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${prod_1_full.loan_type === 'loan' ? Math.round(((prod_1_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_1_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_1_full.bankinfo.slug ? prod_1_full.bankinfo.slug : "N/A"}/${prod_1_full.slug ? prod_1_full.slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_1_full.bankinfo.slug}/${prod_1_full.slug}','_self')">Learn More</button>
+                            </div>                           
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${prod_1_full.updated_at ? moment(prod_1_full.updated_at).format('LL') : "N/A"}</p>
+                            </div>                                            
+                        `)
+                        $('#loader_1').hide();
+                        /*show all product types of all non main cards*/
+                        if (selectedBank_2) {
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_2').hide();
+                            $('#card_2').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_2').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_2').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_2').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        if (selectedBank_3) {
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_3').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_3').hide();
+                            $('#card_3').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_3').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_3').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_3').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                    }
+                });
+
+                $('#product_2_select').on('change', async function () {
+                    selectedProduct_2 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "2") {
+                        $('#card_2').empty();
+                        $('#loader_2').show();
+                        let prod_2 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_2}`);
+                        prod_2 = await prod_2.json();
+                        if (prod_2.ptype !== mainType && selectedBank_1) {
+                            /*IF the ptype of the main card changes*/
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${prod_2.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_1').hide();
+                            $('#card_1').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_1').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_1').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+
+                        }
+                        if (prod_2.ptype !== mainType && selectedBank_3) {
+                            /*IF the ptype of the main card changes*/
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_3').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${prod_2.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_3').hide();
+                            $('#card_3').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_3').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_3').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_3').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        mainType = prod_2.ptype;
+                        let prod_2_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&name=${prod_2.name}&limit=1000`);
+                        prod_2_full = await prod_2_full.json();
+                        prod_2_full = prod_2_full.data[0];
+                        $('#card_2').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_2_full.bankinfo.logo_url ? prod_2_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div> 
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_2_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_2_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_2_full.loan_type === 'loan' ? Math.round(((prod_2_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_2_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div><hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_2_full.bankinfo.slug ? prod_2_full.bankinfo.slug : "N/A"}/${prod_2_full.slug ? prod_2_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_2_full.bankinfo.slug}/${prod_2_full.slug}','_self')">Learn More</button>
+                    </div>                    
+                    <div class =" text-center mt-0">
+                        <p class="last-updated">Last Updated On ${prod_2_full.updated_at ? moment(prod_2_full.updated_at).format('LL') : "N/A"}</p>
+                    </div>                                            
+                `);
+                        $('#loader_2').hide();
+                    }
+                    else if (mainElement && mainElement !== "2") {
+                        $('#card_2').empty();
+                        $('#loader_2').show();
+                        let prod_2 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_2}`);
+                        prod_2 = await prod_2.json();
+                        let prod_2_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&name=${prod_2.name}&limit=1000`);
+                        prod_2_full = await prod_2_full.json();
+                        prod_2_full = prod_2_full.data[0];
+                        $('#card_2').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_2_full.bankinfo.logo_url ? prod_2_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div> 
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_2_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_2_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_2_full.loan_type === 'loan' ? Math.round(((prod_2_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_2_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div><hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_2_full.bankinfo.slug ? prod_2_full.bankinfo.slug : "N/A"}/${prod_2_full.slug ? prod_2_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_2_full.bankinfo.slug}/${prod_2_full.slug}','_self')">Learn More</button>
+                    </div>                    
+                    <div class =" text-center mt-0">
+                        <p class="last-updated">Last Updated On ${prod_2_full.updated_at ? moment(prod_2_full.updated_at).format('LL') : "N/A"}</p>
+                    </div>                                            
+                `)
+                        $('#loader_2').hide();
+                    }
+                    else if (!mainElement) {
+                        mainElement = "2";
+                        $('#card_2').empty();
+                        $('#loader_2').show();
+                        let prod_2 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_2}`);
+                        prod_2 = await prod_2.json();
+                        mainType = prod_2.ptype;
+                        let prod_2_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&name=${prod_2.name}&limit=1000`);
+                        prod_2_full = await prod_2_full.json();
+                        prod_2_full = prod_2_full.data[0];
+                        $('#card_2').append(`
+                            <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${prod_2_full.bankinfo.logo_url ? prod_2_full.bankinfo.logo_url : ""}">
+                                </div>
+                            </div> 
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0"> ${prod_2_full.name} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${prod_2_full.ptype} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${prod_2_full.loan_type === 'loan' ? Math.round(((prod_2_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_2_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_2_full.bankinfo.slug ? prod_2_full.bankinfo.slug : "N/A"}/${prod_2_full.slug ? prod_2_full.slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_2_full.bankinfo.slug}/${prod_2_full.slug}','_self')">Learn More</button>
+                            </div>                           
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${prod_2_full.updated_at ? moment(prod_2_full.updated_at).format('LL') : "N/A"}</p>
+                            </div>                                            
+                        `)
+                        $('#loader_2').hide();
+                        /*show all product types of all non main cards*/
+                        if (selectedBank_1) {
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_1').hide();
+                            $('#card_1').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_1').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_1').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        if (selectedBank_3) {
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_3').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_3').hide();
+                            $('#card_3').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_3').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_3').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_3').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                    }
+                });
+
+                $('#product_3_select').on('change', async function () {
+                    selectedProduct_3 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "3") {
+                        $('#card_3').empty();
+                        $('#loader_3').show();
+                        let prod_3 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_3}`);
+                        prod_3 = await prod_3.json();
+                        if (prod_3.ptype !== mainType && selectedBank_1) {
+                            /*IF the ptype of the main card changes*/
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${prod_3.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_1').hide();
+                            $('#card_1').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_1').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_1').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        if (prod_3.ptype !== mainType && selectedBank_2) {
+                            /*IF the ptype of the main card changes*/
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${prod_3.ptype}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_2').hide();
+                            $('#card_2').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_2').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_2').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_2').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        mainType = prod_3.ptype;
+                        let prod_3_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&name=${prod_3.name}&limit=1000`);
+                        prod_3_full = await prod_3_full.json();
+                        prod_3_full = prod_3_full.data[0];
+                        $('#card_3').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_3_full.bankinfo.logo_url ? prod_3_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div>   
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_3_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_3_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_3_full.loan_type === 'loan' ? Math.round(((prod_3_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_3_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div><hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_3_full.bankinfo.slug ? prod_3_full.bankinfo.slug : "N/A"}/${prod_3_full.slug ? prod_3_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_3_full.bankinfo.slug}/${prod_3_full.slug}','_self')">Learn More</button>
+                    </div>                    
+                    <div class =" text-center mt-0">
+                        <p class="last-updated">Last Updated On ${prod_3_full.updated_at ? moment(prod_3_full.updated_at).format('LL') : "N/A"}</p>
+                    </div>                                            
+                `);
+                        $('#loader_3').hide();
+                    }
+                    else if (mainElement && mainElement !== "3") {
+                        $('#card_3').empty();
+                        $('#loader_3').show();
+                        let prod_3 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_3}`);
+                        prod_3 = await prod_3.json();
+                        let prod_3_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&name=${prod_3.name}&limit=1000`);
+                        prod_3_full = await prod_3_full.json();
+                        prod_3_full = prod_3_full.data[0];
+                        $('#card_3').append(`
+                    <div class ="row row-main">
+                        <div class="compare-img-container">
+                            <img src="${prod_3_full.bankinfo.logo_url ? prod_3_full.bankinfo.logo_url : ""}">
+                        </div>
+                    </div> 
+                    <div class="row-main">
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">work</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Name
+                                </h4>
+                                <p class="m-0"> ${prod_3_full.name} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">device_hub</i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Product Type
+                                </h4>
+                                <p class="m-0"> ${prod_3_full.ptype} </p>                                   
+                            </div>
+                        </div><hr/>
+                        <div class ="row row-sub-main">
+                            <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                <i class="material-icons" style="font-size:18px;">trending_up
+                        </i>
+                            </div>
+                            <div class ="col-md-11 p-0 mob-w-11">
+                                <h4 class="m-0">
+                                    Total Interest Rate
+                                </h4>
+                                <p class="m-0">${prod_3_full.loan_type === 'loan' ? Math.round(((prod_3_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_3_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                            </div>
+                        </div><hr/>
+                    </div>
+                    <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_3_full.bankinfo.slug ? prod_3_full.bankinfo.slug : "N/A"}/${prod_3_full.slug ? prod_3_full.slug : "N/A"}','_self')">Contact Bank</button>
+                    <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_3_full.bankinfo.slug}/${prod_3_full.slug}','_self')">Learn More</button>
+                    </div>                    
+                    <div class =" text-center mt-0">
+                        <p class="last-updated">Last Updated On ${prod_3_full.updated_at ? moment(prod_3_full.updated_at).format('LL') : "N/A"}</p>
+                    </div>                                            
+                `)
+                        $('#loader_3').hide();
+                    }
+                    else if (!mainElement) {
+                        mainElement = "3";
+                        $('#card_3').empty();
+                        $('#loader_3').show();
+                        let prod_3 = await fetch(`https://loanman.askbhunte.com/api/v1/products/${selectedProduct_3}`);
+                        prod_3 = await prod_3.json();
+                        mainType = prod_3.ptype;
+                        let prod_3_full = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&name=${prod_3.name}&limit=1000`);
+                        prod_3_full = await prod_3_full.json();
+                        prod_3_full = prod_3_full.data[0];
+                        $('#card_3').append(`
+                            <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${prod_3_full.bankinfo.logo_url ? prod_3_full.bankinfo.logo_url : ""}">
+                                </div>
+                            </div> 
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0"> ${prod_3_full.name} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${prod_3_full.ptype} </p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${prod_3_full.loan_type === 'loan' ? Math.round(((prod_3_full.total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((prod_3_full.interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${prod_3_full.bankinfo.slug ? prod_3_full.bankinfo.slug : "N/A"}/${prod_3_full.slug ? prod_3_full.slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${prod_3_full.bankinfo.slug}/${prod_3_full.slug}','_self')">Learn More</button>
+                            </div>                           
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${prod_3_full.updated_at ? moment(prod_3_full.updated_at).format('LL') : "N/A"}</p>
+                            </div>                                            
+                        `)
+                        $('#loader_3').hide();
+                        /*show all product types of all non main cards*/
+                        if (selectedBank_1) {
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_1').hide();
+                            $('#card_1').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_1').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_1').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                        if (selectedBank_2) {
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&limit=1000`);
+                            filteredProducts = await filteredProducts.json();
+                            filteredProducts = filteredProducts.data;
+                            filteredProducts.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#product_loader_select_2').hide();
+                            $('#card_2').empty();
+
+                            if (filteredProducts.length === 0) {
+                                let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                                fp = await fp.json();
+                                fp = fp.data;
+                                $('#card_2').append(`
+                        <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                            }
+                            else {
+                                $('#card_2').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                            }
+                            //$('#card_2').append(`Please select a Bank and a Product Name to display Data.`);
+                        }
+                    }
+                });
+
+                $('#bank_1_select').on('change', async function () {
+                    selectedBank_1 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "1") {
+                        mainElement = null;
+                        mainType = null;
+                        /*$('#card_1').empty();
+                        $('#card_1').append(`Please select a Bank and a Product Name to display Data.`);*/
+
+                        $('#product_1_select').empty();
+                        $('#product_1_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_1').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_1').empty();
+                        $('#card_1').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        $('#product_loader_select_1').hide();
+
+                        /*reset other cards*/
+                        if (selectedBank_2) {
+                            $('#product_select_2').empty();
+                            selectedProduct_2 = null;
+                            /*$('#card_2').empty();
+                            $('#card_2').append(`Please select a Bank and a Product Name to display Data.`);*/
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let fp2 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                            fp2 = await fp2.json();
+                            fp2 = fp2.data;
+                            fp2.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_2').empty();
+                            $('#card_2').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp2[0].bankinfo.logo_url ? fp2[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_2').hide();
+                        }
+                        if (selectedBank_3) {
+                            $('#product_select_3').empty();
+                            selectedProduct_3 = null;
+                            /*$('#card_3').empty();
+                            $('#card_3').append(`Please select a Bank and a Product Name to display Data.`);*/
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_3').show();
+                            let fp3 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                            fp3 = await fp3.json();
+                            fp3 = fp3.data;
+                            fp3.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_3').empty();
+                            $('#card_3').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp3[0].bankinfo.logo_url ? fp3[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_3').hide();
+                        }
+                    }
+                    else if (mainElement && mainElement !== "1") {
+                        /*$('#card_1').empty();
+                        $('#card_1').append(`Please select a Bank and a Product Name to display Data.`);*/
+                        $('#product_1_select').empty();
+                        $('#product_1_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_1').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&ptype=${mainType}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_1').empty();
+
+                        if (filteredProducts.length === 0) {
+                            let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                            fp = await fp.json();
+                            fp = fp.data;
+                            $('#card_1').append(`
+                    <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                        }
+                        else {
+                            $('#card_1').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                        }
+                        /*$('#card_1').append(`
+                             <div class="compare-img-container">
+                                 <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                             </div>
+                             Please select a Bank and a Product Name to display Data.
+                         `);*/
+                        $('#product_loader_select_1').hide();
+                    }
+                    else if (!mainElement) {
+                        $('#product_1_select').empty();
+                        $('#product_1_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_1').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#product_loader_select_1').hide();
+
+                        $('#card_1').empty();
+                        $('#card_1').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        //$('#card_1').empty();
+                        // $('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+                    }
+                });
+
+                $('#bank_2_select').on('change', async function () {
+                    selectedBank_2 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "2") {
+                        mainElement = null;
+                        mainType = null;
+                        /*$('#card_2').empty();
+                        $('#card_2').append(`Please select a Bank and a Product Name to display Data.`);*/
+                        $('#product_2_select').empty();
+                        $('#product_2_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_2').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_2').empty();
+                        $('#card_2').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        $('#product_loader_select_2').hide();
+                        /*reset other cards*/
+                        if (selectedBank_1) {
+                            $('#product_select_1').empty();
+                            selectedProduct_1 = null;
+                            /*$('#card_1').empty();
+                            $('#card_1').append(`Please select a Bank and a Product Name to display Data.`);*/
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let fp1 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                            fp1 = await fp1.json();
+                            fp1 = fp1.data;
+                            fp1.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_1').empty();
+                            $('#card_1').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp1[0].bankinfo.logo_url ? fp1[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_1').hide();
+                        }
+                        if (selectedBank_3) {
+                            $('#product_select_3').empty();
+                            selectedProduct_3 = null;
+                            /*$('#card_3').empty();
+                            $('#card_3').append(`Please select a Bank and a Product Name to display Data.`);*/
+                            $('#product_3_select').empty();
+                            $('#product_3_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_3').show();
+                            let fp3 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                            fp3 = await fp3.json();
+                            fp3 = fp3.data;
+                            fp3.forEach(el => {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_3').empty();
+                            $('#card_3').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp3[0].bankinfo.logo_url ? fp3[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_3').hide();
+                        }
+                    }
+                    else if (mainElement && mainElement !== "2") {
+                        /*$('#card_2').empty();
+                        $('#card_2').append(`Please select a Bank and a Product Name to display Data.`);*/
+                        $('#product_2_select').empty();
+                        $('#product_2_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_2').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&ptype=${mainType}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_2').empty();
+
+                        if (filteredProducts.length === 0) {
+                            let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                            fp = await fp.json();
+                            fp = fp.data;
+                            $('#card_2').append(`
+                    <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                        `);
+                        }
+                        else {
+                            $('#card_2').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                        }
+                        /*$('#card_2').append(`
+                             <div class="compare-img-container">
+                                 <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                             </div>
+                             Please select a Bank and a Product Name to display Data.
+                         `);*/
+                        $('#product_loader_select_2').hide();
+                    }
+                    else if (!mainElement) {
+                        $('#product_2_select').empty();
+                        $('#product_2_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_2').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_2').empty();
+                        $('#card_2').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        $('#product_loader_select_2').hide();
+                    }
+                });
+
+                $('#bank_3_select').on('change', async function () {
+                    selectedBank_3 = $(this).find(":selected").val();
+                    if (mainElement && mainElement === "3") {
+                        mainElement = null;
+                        mainType = null;
+                        /*$('#card_3').empty();
+                        $('#card_3').append(`Please select a Bank and a Product Name to display Data.`);*/
+                        $('#product_3_select').empty();
+                        $('#product_3_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_3').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_3').empty();
+                        $('#card_3').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        $('#product_loader_select_3').hide();
+                        /*reset other cards*/
+                        if (selectedBank_1) {
+                            $('#product_select_1').empty();
+                            selectedProduct_1 = null;
+                            $('#card_1').empty();
+                            $('#card_1').append(`Please select a Bank and a Product Name to display Data.`);
+                            $('#product_1_select').empty();
+                            $('#product_1_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_1').show();
+                            let fp1 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_1}&limit=1000`);
+                            fp1 = await fp1.json();
+                            fp1 = fp1.data;
+                            fp1.forEach(el => {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_1').empty();
+                            $('#card_1').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp1[0].bankinfo.logo_url ? fp1[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_1').hide();
+                        }
+                        if (selectedBank_2) {
+                            $('#product_select_2').empty();
+                            selectedProduct_2 = null;
+                            $('#card_2').empty();
+                            $('#card_2').append(`Please select a Bank and a Product Name to display Data.`);
+                            $('#product_2_select').empty();
+                            $('#product_2_select').append(`
+                        <option value="" disabled selected hidden>Select a Product Name</option>                    
+                    `);
+                            $('#product_loader_select_2').show();
+                            let fp2 = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_2}&limit=1000`);
+                            fp2 = await fp2.json();
+                            fp2 = fp2.data;
+                            fp2.forEach(el => {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            });
+                            $('#card_2').empty();
+                            $('#card_2').append(`
+                     <div class="compare-img-container">
+                         <img src="${fp2[0].bankinfo.logo_url ? fp2[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                    `);
+                            $('#product_loader_select_2').hide();
+                        }
+                    }
+                    else if (mainElement && mainElement !== "3") {
+                        /* $('#card_3').empty();
+                         $('#card_3').append(`Please select a Bank and a Product Name to display Data.`);*/
+                        $('#product_3_select').empty();
+                        $('#product_3_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_3').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&ptype=${mainType}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_3').empty();
+                        /*$('#card_3').append(`
+                             <div class="compare-img-container">
+                                 <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                             </div>
+                             Please select a Bank and a Product Name to display Data.
+                         `);*/
+
+                        if (filteredProducts.length === 0) {
+                            let fp = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                            fp = await fp.json();
+                            fp = fp.data;
+                            $('#card_3').append(`
+                    <p style="color:red;text-align:center;margin-bottom:1rem;">Sorry! there are no products available. </p>
+                            <div class="compare-img-container">
+                                <img src="${fp[0].bankinfo.logo_url ? fp[0].bankinfo.logo_url : ""}">
+                            </div>
+                            `);
+                        }
+                        else {
+                            $('#card_3').append(`
+                            <div class="compare-img-container">
+                                <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                            </div>
+                            Please select a Bank and a Product Name to display Data.
+                        `);
+                        }
+                        $('#product_loader_select_3').hide();
+                    }
+                    else if (!mainElement) {
+                        $('#product_3_select').empty();
+                        $('#product_3_select').append(`
+                    <option value="" disabled selected hidden>Select a Product Name</option>                    
+                `);
+                        $('#product_loader_select_3').show();
+                        let filteredProducts = await fetch(`https://loanman.askbhunte.com/api/v1/products?bankname=${selectedBank_3}&limit=1000`);
+                        filteredProducts = await filteredProducts.json();
+                        filteredProducts = filteredProducts.data;
+                        filteredProducts.forEach(el => {
+                            $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                    `);
+                        });
+                        $('#card_3').empty();
+                        $('#card_3').append(`
+                     <div class="compare-img-container">
+                         <img src="${filteredProducts[0].bankinfo.logo_url ? filteredProducts[0].bankinfo.logo_url : ""}">
+                     </div>
+                     Please select a Bank and a Product Name to display Data.
+                 `);
+                        $('#product_loader_select_3').hide();
+                    }
+                });
+
+                /* if data sent from index page */
+                if (incomingId) {
+                    if (incomingId[0]) {
+                        $('#product_loader_select_1').show();
+                        currentBank_1 = incomingId[0].bankinfo.name;
+                        selectedBank_1 = incomingId[0].bankinfo.name;
+                        selectedProduct_1 = incomingId[0].name;
+                        $('#bank_1_select').empty();
+                        banks.forEach((el) => {
+                            if (el.name === incomingId[0].bankinfo.name) {
+                                $('#bank_1_select').append(`
+                            <option selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#bank_1_select').append(` 
+                            <option>${el.name}</option>
+                        `);
+                            }
+                        });
+                        let filteredProducts = products.filter((el) => el.bankinfo.name == selectedBank_1);
+                        filteredProducts.forEach((el) => {
+                            if (el.name === selectedProduct_1) {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}" selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#product_1_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            }
+                        })
+                        $('#product_loader_select_1').hide();
+                        $('#card_1').empty();
+                        $('#card_1').append(`
+                <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${incomingId[0].bankinfo.logo_url ? incomingId[0].bankinfo.logo_url : ""}">
+                                </div>
+                            </div>
+                            
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0">${incomingId[0].name}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${incomingId[0].ptype}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${incomingId[0].loan_type === 'loan' ? Math.round(((incomingId[0].total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((incomingId[0].interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${incomingId[0].bankinfo.slug ? incomingId[0].bankinfo.slug : "N/A"}/${incomingId[0].slug ? incomingId[0].slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${incomingId[0].bankinfo.slug}/${incomingId[0].slug}','_self')">Learn More</button>
+                            </div>
+                           
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${incomingId[0].updated_at ? moment(incomingId[0].updated_at).format('LL') : "N/A"}</p>
+                            </div> 
+                `);
+                    }
+                    if (incomingId[1]) {
+                        $('#product_loader_select_2').show();
+                        currentBank_2 = incomingId[1].bankinfo.name;
+                        selectedBank_2 = incomingId[1].bankinfo.name;
+                        selectedProduct_2 = incomingId[1].name;
+                        $('#bank_2_select').empty();
+                        banks.forEach((el) => {
+                            if (el.name === incomingId[1].bankinfo.name) {
+                                $('#bank_2_select').append(`
+                           <option selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#bank_2_select').append(`
+                           <option>${el.name}</option>
+                    `);
+                            }
+                        });
+                        let filteredProducts = products.filter((el) => el.bankinfo.name == selectedBank_2);
+                        filteredProducts.forEach((el) => {
+                            if (el.name === selectedProduct_2) {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}" selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#product_2_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            }
+                        });
+                        $('#product_loader_select_2').hide();
+                        $('#card_2').empty();
+                        $('#card_2').append(`
+                <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${incomingId[1].bankinfo.logo_url ? incomingId[1].bankinfo.logo_url : ""}">
+                                </div>
+                            </div>
+                            
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0">${incomingId[1].name}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${incomingId[1].ptype}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${incomingId[1].loan_type === 'loan' ? Math.round(((incomingId[1].total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((incomingId[1].interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${incomingId[1].bankinfo.slug ? incomingId[1].bankinfo.slug : "N/A"}/${incomingId[1].slug ? incomingId[1].slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${incomingId[1].bankinfo.slug}/${incomingId[1].slug}','_self')">Learn More</button>
+                            </div>
+                             
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${incomingId[1].updated_at ? moment(incomingId[1].updated_at).format('LL') : "N/A"}</p>
+                            </div>  
+        `);
+                    }
+
+                    if (incomingId[2]) {
+                        $('#product_loader_select_3').show();
+                        currentBank_3 = incomingId[2];
+                        selectedBank_3 = incomingId[2].bankinfo.name;
+                        selectedProduct_3 = incomingId[2].name;
+                        $('#bank_3_select').empty();
+                        banks.forEach((el) => {
+                            if (el.name === incomingId[2].bankinfo.name) {
+                                $('#bank_3_select').append(`
+                            <option selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#bank_3_select').append(`
+            <option>${el.name}</option>
+            `);
+                            }
+                        });
+                        let filteredProducts = products.filter((el) => el.bankinfo.name == selectedBank_3);
+                        filteredProducts.forEach((el) => {
+                            if (el.name === selectedProduct_3) {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}" selected>${el.name}</option>
+                        `);
+                            }
+                            else {
+                                $('#product_3_select').append(`
+                            <option value="${el._id}">${el.name}</option>
+                        `);
+                            }
+                        });
+                        $('#product_loader_select_3').hide();
+                        $('#card_3').empty();
+                        $('#card_3').append(`
+                <div class ="row row-main">
+                                <div class="compare-img-container">
+                                    <img src="${incomingId[2].bankinfo.logo_url ? incomingId[2].bankinfo.logo_url : ""}">
+                                </div>
+                            </div>
+                            
+                            <div class="row-main">
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">work</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Name
+                                        </h4>
+                                        <p class="m-0">${incomingId[2].name}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">device_hub</i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Product Type
+                                        </h4>
+                                        <p class="m-0"> ${incomingId[2].ptype}</p>                                   
+                                    </div>
+                                </div><hr/>
+                                <div class ="row row-sub-main">
+                                    <div class ="col-md-1 p-0 mob-w-1 c-p-1">
+                                        <i class="material-icons" style="font-size:18px;">trending_up
+                                </i>
+                                    </div>
+                                    <div class ="col-md-11 p-0 mob-w-11">
+                                        <h4 class="m-0">
+                                            Total Interest Rate
+                                        </h4>
+                                        <p class="m-0">${incomingId[2].loan_type === 'loan' ? Math.round(((incomingId[2].total_interest) + Number.EPSILON) * 100) / 100 : Math.round(((incomingId[2].interest_rate) + Number.EPSILON) * 100) / 100} %</p>                                   
+                                    </div>
+                                </div><hr/>
+                            </div>
+                            <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/contact/${incomingId[2].bankinfo.slug ? incomingId[2].bankinfo.slug : "N/A"}/${incomingId[2].slug ? incomingId[2].slug : "N/A"}','_self')">Contact Bank</button>
+                            <button type="button" class="btn btn-primary compare-apply" onclick="window.open('/learn/${incomingId[2].bankinfo.slug}/${incomingId[2].slug}','_self')">Learn More</button>
+                            </div>
+                            
+                            <div class =" text-center mt-0">
+                                <p class="last-updated">Last Updated On ${incomingId[2].updated_at ? moment(incomingId[2].updated_at).format('LL') : "N/A"}</p>
+                            </div> 
+                `);
+                    }
+                }
+            </script>
+            <script>
+                $('#loader-carousel').hide();
+                let rightButtonCounter = 0;
+
+                $('#next_slide').on('click', () => {
+                    if (rightButtonCounter == 0) {
+                        $('#multi-item-example').hide();
+                        $('#loader-carousel').show();
+                        /* load all the loan types in carousel */
+                        $.get('/api/v1/loan-type', {}, (data) => {
+                            for (let i = 5; i < data.length - 5; i += 5) {
+                                $('.carousel-append').append(`
+            <div class="carousel-item carouselLoader">
+              <div class="row">
+                <div class="category-item">
+                  <div id="${data[i].account_type}" class="card_slider" style="text-align: center;">
+                    <a class="slider_text" href="#"><i class="material-icons slider_icon">attach_money</i><br/> ${data[i].account_type}</a>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div id="${data[i + 1].account_type}" class="card_slider" style="text-align: center;">
+                    <a class="slider_text" href="#"><i class="material-icons slider_icon">
+                        money</i><br/> ${data[i + 1].account_type}</a>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div id="${data[i + 2].account_type}" class="card_slider" style="text-align: center;">
+                    <a href="#" class="slider_text"><i class="material-icons slider_icon">
+                        local_atm
+                      </i><br/> ${data[i + 2].account_type}</a>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div id="${data[i + 3].account_type}" class="card_slider" style="text-align: center;">
+                    <a href="#" class="slider_text"><i class="material-icons slider_icon">
+                        money
+                      </i><br/> ${data[i + 3].account_type}</a>
+                  </div>
+                </div>
+                <div class="category-item">
+                  <div id="${data[i + 4].account_type}" class="card_slider" style="text-align: center;">
+                    <a href="#" class="slider_text"><i class="material-icons slider_icon">
+                        attach_money
+                      </i><br/> ${data[i + 4].account_type}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `);
+                            }
+                            $('#loader-carousel').hide();
+                            $('#next_slide').click();
+                            $('#multi-item-example').show();
+                        });
+                        /* load all the loan types in carousel end*/
+                        rightButtonCounter = rightButtonCounter + 1;
+                    }
+                });
+
+
+                $('#loader-carousel-recommendations').hide();
+            </script>
+            <script src="/js/compare.js"></script>
+</body>
+
+</html>

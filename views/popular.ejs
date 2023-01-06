@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <Style>
+      .popular-desc p {
+        color: #000000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+
+      .icon.icon-info img {
+        height: 200px;
+        max-width: 200px;
+        object-fit: contain;
+        object-position: center;
+      }
+    </Style>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <div class="container">
+      <div class="row explore-header">
+        <div class="col-md-12 text-center mob-explore-container">
+          <h1 class="section-title">Popular Products</h1>
+          <p class="section-subtitle mt-2">Find the products that are loved by others and make an <br />informed
+            decision
+            for your
+            requirements.</p>
+        </div>
+      </div>
+      <div class="features mb-4">
+        <div class="row">
+          <% products.forEach((el)=>{ %>
+            <div class="col-md-4">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+                <div class="popular-desc info text-center">
+                  <div class="icon icon-info">
+                    <% if(el.bankInfo) { %><img class="img-fluid"
+                        src="<%= el.bankInfo.product_url ? el.bankInfo.product_url :  el.bankInfo.logo_url%>"
+                        onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                        alt="<%= el.name ? el.name :"" %>" />
+                      <%} %>
+                        <% if(el.companyInfo){ %><img class="img-fluid"
+                            src="<%= el.companyInfo.longImg ? el.companyInfo.longImg :  el.companyInfo.image%>"
+                            onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                            alt="<%= el.name ? el.name :"" %>" />
+                          <%}%>
+                  </div>
+                  <h4 class="info-title" style="font-family: Gilroy">
+                    <%= el.name ? el.name :"" %> by
+                  </h4>
+
+                  <% if(el.bankInfo) { %>
+                    <h4 class="info-title mt-0" style="font-family: Gilroy-bold">
+                      <%= el.bankInfo.name ? el.bankInfo.name : '' %>
+                    </h4>
+                    <%}%>
+                      <% if(el.companyInfo) { %>
+                        <h4 class="info-title mt-0" style="font-family: Gilroy-bold">
+                          <%= el.companyInfo && el.companyInfo.name ? el.companyInfo.name : '' %>
+                        </h4>
+                        <%}%>
+
+                          <% if(el.bankInfo) { %>
+                            <div class='popular-desc-fix'>
+                              <%- el.bankInfo.desc ? el.bankInfo.desc: '' %>
+                            </div>
+                            <%}%>
+                              <% if(el.companyInfo) { %>
+                                <div class='popular-desc-fix'>
+                                  <%- el.companyInfo.summary ? el.companyInfo.summary : '' %>
+                                </div>
+                                <%}%>
+
+                                  <% if(el.bankInfo) { %>
+                                    <button type="button" class="btn btn-primary btn-curve explore-btn"
+                                      onclick="window.open('/learn/<%-el.bankInfo.slug?el.bankInfo.slug:''%>/<%-el.slug?el.slug:''%>','_self')">Learn
+                                      More</button>
+                                    <button type="button" class="btn btn-primary btn-curve explore-btn"
+                                      onclick="window.open('/contact/<%-el.bankInfo.slug?el.bankInfo.slug:''%>/<%-el.slug?el.slug:''%>','_self')">Contact
+                                      Bank</button>
+                                    <%}%>
+                                      <% if(el.companyInfo) { %>
+                                        <button type="button" class="btn btn-primary btn-curve explore-btn"
+                                          onclick="window.open('/learn-insurance/<%- el.companyInfo.slug? el.companyInfo.slug:''%>/<%-el.slug?el.slug:''%>','_self')">Learn
+                                          More</button>
+                                        <button type="button" class="btn btn-primary btn-curve explore-btn"
+                                          onclick="window.open('/contact/<%- el.companyInfo.slug? el.companyInfo.slug:''%>/<%-el.slug?el.slug:''%>','_self')">Contact
+                                          Agent
+                                        </button>
+                                        <%}%>
+                </div>
+              </div>
+            </div>
+            <%}); %>
+        </div>
+      </div>
+    </div>
+
+    <%- include('_layouts/footer') %>
+
+</body>
+
+</html>

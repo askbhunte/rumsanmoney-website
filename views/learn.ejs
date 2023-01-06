@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <style>
+      .mouse-hover:hover {
+        cursor: pointer !important;
+      }
+
+      .image-style-side {
+        float: right;
+        margin-left: var(--ck-image-style-spacing);
+        max-width: 50%;
+      }
+
+      .image {
+        display: table;
+        clear: both;
+        text-align: center;
+        margin: 1em auto;
+      }
+
+      .image img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        min-width: 50px;
+        padding: 20px;
+
+      }
+
+      /**/
+      .media {
+        width: 100%;
+      }
+
+      .media oembed {
+        width: 100%;
+      }
+
+      .embedly-card {
+        width: 100%;
+      }
+
+      .embedly-card-hug {
+        width: 100%;
+        min-width: none !important;
+        max-width: none !important;
+      }
+
+      .embedly-card iframe {
+        width: 100%;
+        min-width: none;
+        max-width: none;
+      }
+
+      blockquote {
+        overflow: hidden;
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+        margin-left: 0;
+        margin-right: 0;
+        font-style: italic;
+        border-left: 5px solid #ccc;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .img-fluid {
+          max-width: 120px;
+        }
+
+        .image-style-side {
+          float: right;
+          margin-left: var(--ck-image-style-spacing);
+          max-width: 50%;
+        }
+
+        .image {
+          display: table;
+          clear: both;
+          text-align: center;
+          margin: 1em auto;
+        }
+
+        .image img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          min-width: 50px;
+          padding: 20px;
+
+        }
+
+        /**/
+        .media {
+          width: 100%;
+        }
+
+        .media oembed {
+          width: 100%;
+        }
+
+        .embedly-card {
+          width: 100%;
+        }
+
+        .embedly-card-hug {
+          width: 100%;
+          min-width: none !important;
+          max-width: none !important;
+        }
+
+        .embedly-card iframe {
+          width: 100%;
+          min-width: none;
+          max-width: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .img-fluid {
+            max-width: 120px;
+          }
+
+          .image-style-side {
+            float: none;
+            margin-left: 0px !important;
+            max-width: 100%;
+          }
+
+          .image {
+            display: table;
+            clear: both;
+            text-align: center;
+            margin: none;
+          }
+
+          .image img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            min-width: 50px;
+          }
+        }
+
+        /*extras heading color blue*/
+        h1,
+        h2,
+        h3 {
+          color: #0d5572;
+        }
+      }
+    </style>
+    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <!--Slide to top button ends-->
+    <div>
+      <div class="container">
+        <div class="each-loan-card learn-header-section" style="background-color: #fff">
+          <div class="row pb-4">
+            <div class="col-md-3 mt-3">
+              <img src="<%- product.bankinfo.product_url %>" alt="<%-product.name ? product.name : '' %>"
+                class="img-fluid"
+                onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';">
+            </div>
+            <div class="col-md-9 mt-3">
+              <div class="row pb-0">
+                <div class="col-md-12">
+                  <h4 class="learn-product-title">
+                    <%- product.name ? product.name : "" %>
+                  </h4>
+                  <p style="font-size: 16px !important">
+                    <%- product.description ? product.description : product.categoryinfo.sub_head %>
+                  </p>
+                </div>
+              </div>
+              <!--<div class="tags-container">
+                <div class="each-tags">
+                  Loan
+                </div>
+                <div class="each-tags">
+                  Home Loan
+                </div>
+                <div class="each-tags">
+                  Most Popular
+                </div>
+                <div class="each-tags">
+                  Trending
+                </div>
+              </div>-->
+              <div class="mt-3">
+                <button id="learnContactBtn" type="button" class="btn btn-primary btn-sm  btn-curve "
+                  onclick="window.open('/contact/<%-product.bankinfo.slug ? product.bankinfo.slug : 'N/A'%>/<%-product.slug ? product.slug : 'N/A' %>/')">Contact
+                  Bank
+                </button>
+                <!-- <a href="" class="m-3">View Terms and Condition</a> -->
+              </div>
+              <div class="mt-4" style="display:<%- product.style ? 'block' : 'none'%>">
+                <div class="media">
+                  <img class="mr-3" src="https://assets.rumsan.com/askbhunte/assets/interest-rate.png	" width="50px"
+                    height="50px" alt="<%-product.name ? product.name : ''%>">
+                  <div class="media-body">
+                    <h5 class="mt-0 learn-rate-title">
+                      <%- (product.interest_rate + product.bankinfo.base_rate)?Math.round(((product.interest_rate +
+                        product.bankinfo.base_rate) + Number.EPSILON) * 100) / 100 : 'N/A' %> %<br />Total Interest
+                        Rate
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-md-12 mt-3 p-1">
+                  <p>Last Updated Date: <%- product.updated_at ? product.updated_at : "n/a" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color:#e1e1e1;<%-product.style? product.style : ''%>;" class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="media mobile-border">
+              <img class="mr-3" src="https://assets.rumsan.com/askbhunte/assets/interest-rate.png	" width="50px"
+                height="50px" alt="<%-product.name ? product.name : ''%>">
+              <div class="media-body">
+                <h5 class="mt-0 learn-rate-title">
+                  <%- product.interest_rate ? product.interest_rate : "" %>
+                    %<br />Interest Rate
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="media mobile-border">
+              <img class="mr-3" src="https://assets.rumsan.com/askbhunte/assets/interest-rate.png	" width="50px"
+                height="50px" alt="<%-product.name ? product.name : ''%>">
+              <div class="media-body">
+                <h5 class="mt-0 learn-rate-title">
+                  <%- product.bankinfo.base_rate %>
+                    %<br />Base Rate
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="media">
+              <img class="mr-3" src="https://assets.rumsan.com/askbhunte/assets/interest-rate.png	" width="50px"
+                height="50px" alt="<%-product.name ? product.name : ''%>">
+              <div class="media-body">
+                <h5 class="mt-0 learn-rate-title">
+                  <%- (product.interest_rate + product.bankinfo.base_rate)?Math.round(((product.interest_rate +
+                    product.bankinfo.base_rate) + Number.EPSILON) * 100) / 100 : 'N/A' %> %<br />Total Interest
+                    Rate
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-5">
+            <p>Last Updated Date: <%- product.updated_at ? product.updated_at : "n/a" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div style="background-color:white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="about-us">
+              <h1 id="listenerBankName" class="custom-title mouse-hover" style="text-align: left"
+                onclick="window.open('/banks/<%-product.bankinfo.slug%>','_self')">
+                <%-product.bankinfo.name ? product.bankinfo.name : "" %>
+              </h1>
+              <p class=" custom-learn-p">
+                <%-product.bankinfo.desc ? product.bankinfo.desc : "" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color:#e1e1e1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 mt-2">
+              <img src="https://assets.rumsan.com/askbhunte/assets/2122931.png	" class="img-fluid"
+                alt="<%-product.name ? product.name : ''%>">
+            </div>
+            <div class="col-md-8">
+              <div class="about-us">
+                <h1 class="custom-title" style="text-align: left">REQUIRED DOCUMENTS</h1>
+                <p class="custom-learn-p">
+                  <%-product.categoryinfo.required_docs ? product.categoryinfo.required_docs : "" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color:white;display: <%-product.categoryinfo.extras ? 'block' : 'none'%>;">
+        <div class="container extra-info">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="about-us">
+                <%-product.categoryinfo.extras%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="products-recommend" style="<%-productsRecommend.length===0?'display:none;':'display:block;'%>">
+        <div class="container">
+          <h2 class="mb-5" style="text-align: left;"><strong>Products You May Like</strong></h2>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <% productsRecommend.forEach((el)=> { %>
+                  <div class="col-md-3">
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                      <div class="productsCard mouse-hover popular-desc info text-center py-4"
+                        onclick="window.open('/learn/<%-el.bankinfo.slug?el.bankinfo.slug:''%>/<%-el.slug?el.slug:''%>','_self')">
+                        <div class="icon icon-info" style="width:150px;height:150px;margin:0 auto;">
+                          <img class="img-fluid" src="<%= el.bankinfo.product_url%>"
+                            style="width:100%;height:100%;object-fit: contain;"
+                            onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+                            alt="<%-el.bankinfo.name%>" />
+                        </div>
+                        <h4 class="info-title recommend-product" style="font-family: Gilroy">
+                          <%= el.name ? el.name :"" %> by
+                        </h4>
+                        <h4 class="info-title mt-0 recommend-bank" style="font-family: Gilroy-bold">
+                          <%= el.bankinfo.name ? el.bankinfo.name :"" %>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 d-flex justify-content-center align-items-center mb-4">
+            <button id="viewMoreBtn" type="button" class="btn btn-primary btn-lg btn-curve explore-btn"
+              onclick="window.open('/<%- product.loan_type === 'saving'? 'savings' : 'loan'%>?type=<%-product.ptype%>','_self')">View
+              More</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <%- include('_layouts/footer') %>
+</body>
+<script src="/js/embed.js"></script>
+<script>
+  let product = `<%- product && product.categoryinfo.extras ? product.categoryinfo.extras : ''%>`;
+  if (!product) {
+    $(".extra-info").css("display", "none", "important");
+  }
+</script>
+<script src="/js/learnListener.js"></script>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<head>
+  <%- include('_layouts/header') %>
+    <Style>
+      .custom-title {
+        text-align: left;
+        font-size: 32px;
+      }
+
+      .icon.icon-info img {
+        height: 200px;
+        max-width: 500px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      h3 {
+        font-family: Gilroy;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      p {
+
+        font-size: 20px;
+        line-height: 32px;
+      }
+
+
+      .logo-center {
+        display: flex;
+        justify-content: center;
+        align-items: center
+      }
+    </Style>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <div class="container">
+      <div class="row" style="margin-top: 5rem">
+        <div class="col-md-6">
+
+          <h1 class="custom-title ">
+            <%=company.name?company.name:""%>
+          </h1>
+          <div class="mt-4">
+            <img class="img-fluid" height="40px" width="40px"
+              src="https://assets.rumsan.com/askbhunte/assets/bhuntemoney-location-icon.png	" />
+            <h3 class="d-inline pl-4">
+              <%= company.address?company.address:""%>
+            </h3><br />
+          </div>
+          <div class="mt-4">
+            <img class="img-fluid" height="40px" width="40px"
+              src="https://assets.rumsan.com/askbhunte/assets/bhuntemoney-email-icon.png		" />
+            <h3 class="d-inline pl-4"><a href="mailto:<%= company.email?company.email:""%>" style="color:black">
+                <%= company.email?company.email:""%>
+              </a>
+            </h3> <br />
+          </div>
+          <div class="mt-4">
+            <img class="img-fluid" height="40px" width="40px"
+              src="https://assets.rumsan.com/askbhunte/assets/bhuntemoney-telephone-icon.png" />
+            <h3 class="d-inline pl-4">
+              <%= company.primary_contact?company.primary_contact:""%>
+            </h3><br />
+          </div>
+        </div>
+        <div class="col-md-6 logo-center">
+          <div class="icon icon-info bank-detail-img-container">
+            <img class="img-fluid" src="<%= company.image%>"
+              onerror="this.onerror=null;this.src='https://assets.rumsan.com/askbhunte/assets/bhunte.png';"
+              alt="<%= company.name ? company.name :"" %>" />
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2 pb-5">
+        <div class="col-md-12">
+          <p class="custom-p">
+            <%- company.summary?company.summary:""%>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-recommend">
+      <div class="container">
+        <h2 class="custom-title mb-5"><strong>
+            <%=company.name?company.name:""%> Products
+          </strong></h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row" id="appendDiv">
+              <% products.forEach((el)=> { %>
+                <div class="col-md-3">
+                  <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="mouse-hover popular-desc info text-center p-0"
+                      onclick="window.open('/learn-insurance/<%-company.slug%>/<%-el.products.slug%>','_self')">
+                      <h4 style="font-family: Gilroy" class="category-descs">
+                        <%= el.products.name ? el.products.name :"" %>
+                      </h4>
+                      <p class="category-descs">
+                        <%= el.category.name ? el.category.name :"" %>
+                      </p>
+
+                    </div>
+                  </div>
+                </div>
+                <%})%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('_layouts/footer') %>
+</body>
+<script>
+  let c = `<%-JSON.stringify(company)%>`;
+  c = JSON.parse(c);
+  let count = 0;
+  let callFunction = true;
+  $(window).scroll(() => {
+    if (callFunction && $(window).scrollTop() + $(window).height() >= $('#footer-card').offset().top + $('#footer-card').height() * 0) {
+      loadMore(count += 20);
+      callFunction = false;
+      setTimeout(() => {
+        callFunction = true;
+      }, 100);
+    }
+  });
+  function loadMore(count) {
+    $.ajax({
+      method: "GET",
+      url: `/api/v1/companies?slug=${c.slug}&start=${count}`,
+    })
+      .then(d => {
+        d.data.forEach(el => {
+          $('#appendDiv').append(`
+            <div class="col-md-3">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+                <div class="mouse-hover popular-desc info text-center p-0" onclick="window.open('/learn-insurance/${c.slug ? c.slug : ''}/${el.products.slug ? el.products.slug : ''}','_self')">
+       
+          <h4 style="font-family: Gilroy" class="category-descs">
+                    ${el.products.name ? el.products.name : ""} 
+                  </h4>
+                  <p class="category-descs"> ${el.category.name ? el.category.name : ""} </p>
+                
+              </div >
+            </div >
+          `);
+        })
+      })
+      .catch(e => console.log(e))
+  }
+</script>
+<script src="/js/bankDetailsListener.js"></script>
+
+</html>

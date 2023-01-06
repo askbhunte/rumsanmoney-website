@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('_layouts/header') %>
+</head>
+
+<body>
+  <%- include('_layouts/navbar') %>
+
+    <!--Slide to top button starts-->
+    <button id="btnScrollToTop" class="btn btn-primary btn-scroll-to-top ">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+    <!--Slide to top button ends-->
+
+
+    <!--Explore and Learn Section Start-->
+    <div class="container d-sm-block d-none">
+      <div class="row explore-header">
+        <div class="col-md-12 text-center mob-explore-container">
+          <h1 class="section-title">Explore and Learn</h1>
+          <p class="section-subtitle mt-2">Learn below about various Products and choose <br />whichever fits your
+            requirement
+            perfectly.</p>
+        </div>
+      </div>
+      <div class="row mt-2" id="appendDiv">
+        <%categories.forEach((el)=>{ %>
+          <div class="col-md-4">
+            <div class="wrapper">
+              <div class="card">
+                <img src="<%= el.image %>"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80	';"
+                  class="img-raised rounded" style="filter:brightness(0.5)" alt=" <%= el.name ? el.name :"" %> " />
+                <div class="info text-center ">
+                  <h1 class="cat-title">
+                    <%= el.name ? el.name :"" %>
+                  </h1>
+                  <p class="category-desc">
+                    <%= el.sub_head ? el.sub_head :"" %>
+                  </p>
+                  <% let name=el.name.toLowerCase().replace(/\s/g, '-' );%>
+                    <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn"
+                      onclick="window.open('/learn-resources/<%-name%>','_self')">Read
+                      More</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%}); %>
+      </div>
+    </div>
+    <!--Explore and Learn Section End-->
+
+    <div class="container d-sm-none d-block">
+      <div class="container ">
+        <div class="row explore-header">
+          <div class="col-md-12 text-center mob-explore-container">
+            <h1 class="section-title">Explore and Learn</h1>
+            <p class="section-subtitle mt-2">Learn below about various Products and choose <br />whichever fits your
+              requirement
+              perfectly.</p>
+          </div>
+        </div>
+        <div class="row mt-2" id="mobAppend">
+          <% categories.forEach((el)=>{ %>
+            <div class="col-md-4">
+              <div class="wrapper">
+                <div class="card">
+                  <img src="${ el.image %>"
+                    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80	';"
+                    class="img-raised rounded" style="filter:brightness(0.5)" alt=" <%= el.name ? el.name :"" %> " />
+                  <div class="info text-center">
+                    <h1 class="cat-title" style="opacity: 1">
+                      <%= el.name ? el.name :"" %>
+                    </h1>
+                    <p class="category-desc" style="opacity: 1">
+                      <%= el.sub_head ? el.sub_head :"" %>
+                    </p>
+                    <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn" style="opacity: 1"
+                      onclick="window.open('/learn-resources/<%-el.name%>','_self')">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%}); %>
+        </div>
+      </div>
+    </div>
+    <%- include('_layouts/footer') %>
+</body>
+<script>
+  let count = 0;
+  let callFunction = true;
+  $(window).scroll(() => {
+    if (callFunction && $(window).scrollTop() > $('body').height() / 2 /*$(window).scrollTop() + $(window).height() >= $('#footer-card').offset().top + $('#footer-card').height() * 0*/) {
+      loadMore(count += 20);
+      callFunction = false;
+      setTimeout(() => {
+        callFunction = true;
+      }, 1500);
+    }
+  });
+  function loadMore(count) {
+    $.ajax({
+      method: "GET",
+      url: `/api/v1/resources?start=${count}`,
+    })
+      .then(d => {
+        d.data.forEach(el => {
+          $('#appendDiv').append(`
+          <div class="col-md-4">
+              <div class="wrapper">
+                <div class="card">
+                  <img src="${el.image}" 
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" 
+                  class="img-raised rounded" style="filter:brightness(0.5)" alt=" ${el.name ? el.name : ""} " />
+                  <div class="info text-center">
+                    <h1 class="cat-title" style="opacity: 1">
+                      ${el.name ? el.name : ""}
+                    </h1>
+                    <p class="category-desc" style="opacity: 1">
+                      ${el.sub_head ? el.sub_head : ""}
+                    </p>
+                    <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn" style="opacity: 1"
+                      onclick="window.open('/learn-resources/${el.slug}','_self')">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `);
+          $('#mobAppend').append(`
+          <div class="col-md-4">
+              <div class="wrapper">
+                <div class="card">
+                  <img src="${el.image}" 
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';" 
+                  class="img-raised rounded" style="filter:brightness(0.5)" alt=" ${el.name ? el.name : ""} " />
+                  <div class="info text-center">
+                    <h1 class="cat-title" style="opacity: 1">
+                      ${el.name ? el.name : ""}
+                    </h1>
+                    <p class="category-desc" style="opacity: 1">
+                      ${el.sub_head ? el.sub_head : ""}
+                    </p>
+                    <button type="button" class="listenBtn btn btn-primary btn-curve explore-btn" style="opacity: 1"
+                      onclick="window.open('/learn-resources/${el.slug}','_self')">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+      })
+      .catch(e => console.log(e))
+  }
+</script>
+<script src="/js/resourcesListener.js"></script>
+
+</html>
